@@ -1,0 +1,642 @@
+._384_960 {
+    width: 384px;
+    height: 960px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._480_720 {
+    width: 480px;
+    height: 720px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._512_786 {
+    width: 512px;
+    height: 786px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+
+
+._576_336 {
+    width: 576px;
+    height: 336px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+
+
+._576_864 {
+    width: 576px;
+    height: 864px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._624_1040 {
+    width: 624px;
+    height: 1040px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._640_1120 {
+    width: 640px;
+    height: 1120px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._640_1140 {
+    width: 640px;
+    height: 1140px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._648_384 {
+    width: 648px;
+    height: 384px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._720_480 {
+    width: 720px;
+    height: 480px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._768_1152 {
+    width: 768px;
+    height: 1152px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    text-align: center;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._768_1344 {
+    width: 768px;
+    height: 1344px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._864_432 {
+    width: 864px;
+    height: 432px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._864_576 {
+    width: 864px;
+    height: 576px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._864_720 {
+    width: 864px;
+    height: 720px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+
+._864_1440 {
+    width: 864px;
+    height: 1440px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._960_640 {
+    width: 960px;
+    height: 640px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._960_2016 {
+    width: 960px;
+    height: 2016px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._1024_640 {
+    width: 1024px;
+    height: 640px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1080_600 {
+    width: 1080px;
+    height: 600px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1088_576 {
+    width: 1088px;
+    height: 576px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1080_1920 {
+    width: 1080px;
+    height: 1920px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._1152_640 {
+    width: 1152px;
+    height: 640px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1152_704 {
+    width: 1152px;
+    height: 704px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1152_720 {
+    width: 1152px;
+    height: 720px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1152_768 {
+    width: 1152px;
+    height: 768px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1280_704 {
+    width: 1280px;
+    height: 704px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+
+._1280_800 {
+    width: 1280px;
+    height: 800px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1440_1080 {
+    width: 1440px;
+    height: 1080px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1536_960 {
+    width: 1536px;
+    height: 960px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1548_946 {
+    width: 1548px;
+    height: 946px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+
+._1920_1080 {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._1920_1152 {
+    width: 1920px;
+    height: 1152px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._2160_3840 {
+    width: 2160px;
+    height: 3840px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+._4092_960 {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v1 {
+    width: 90%;
+    height: 90%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v2 {
+    width: 85%;
+    height: 85%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v3 {
+    width: 95%;
+    height: 95%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v4 {
+    width: 90%;
+    height: 80%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v5 {
+    width: 90%;
+    height: 75%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v6 {
+    width: 85%;
+    height: 75%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+._4092_960_v7 {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+._4092_960_v8 {
+    width: 100%;
+    height: 97.5%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-position-y: center;
+    background-size: contain;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.bg_landscape {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.bg_vertical {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.i_landscape_v3 {
+    width: 45%;
+    max-width: 45%;
+    height: auto;
+    max-height: -webkit-fill-available;
+    bottom: 0%;
+    left: 0;
+    margin-right: 0;
+    position: absolute;
+}
+
+
+.i_landscape_v2 {
+    width: auto;
+    /* 20%; */
+    max-width: fit-content;
+    height: auto;
+    max-height: -webkit-fill-available;
+    bottom: 0%;
+    left: 12.5%;
+    position: absolute;
+}
+
+.i_landscape_v1 {
+    width: 45%;
+    max-width: fit-content;
+    height: auto;
+    max-height: -webkit-fill-available;
+    bottom: 0%;
+    left: 0%;
+    position: absolute;
+}
+
+.i_landscape {
+    width: 17.5%;
+    height: 100%;
+    top: 0%;
+    left: 17.5%;
+    position: absolute;
+}
+
+.i_v1 {
+    width: auto;
+    height: 67%;
+    top: 33%;
+    vertical-align: bottom;
+    position: relative;
+}
+
+
+.i {
+    width: 75%;
+    height: 67%;
+    top: 33%;
+    left: 12.5%;
+    position: absolute;
+}
+
+
+.i_768_1152 {
+    width: 65%;
+    height: 67%;
+    top: 33%;
+    left: 17.5%;
+    position: absolute;
+}

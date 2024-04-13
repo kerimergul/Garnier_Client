@@ -1,0 +1,10 @@
+.screen1-body{
+    height: 1920px;
+    width: 1080px;
+    position: absolute;
+     background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;  
+    background-size: cover;
+    /* background-image: url('../backgrounds/screen1.jpg'); */
+  }

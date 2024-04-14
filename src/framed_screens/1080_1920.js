@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import "./style.css";
 import axios from "axios";
 import './1080_1920.css';
-const style = { backgroundImage: 'url(/backgrounds/1080x1920.png)' };
+const style = { backgroundImage: 'url(/backgrounds/1080_1920.png)' };
 
 
 
@@ -29,6 +29,7 @@ class _1080_1920 extends Component {
 
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip }).then((res) => {
             if (res?.data?.status === true) {
+                console.log(res?.data);
                 var videoElement = document.getElementById('video');
                 videoElement.src = res?.data?.video;
                 videoElement.load();

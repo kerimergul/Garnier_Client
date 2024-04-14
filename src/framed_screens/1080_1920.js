@@ -21,7 +21,7 @@ class _1080_1920 extends Component {
         }
         this.interval = setInterval(async () => {
             this.getImg();
-        }, 6000)
+        }, 20000)
     }
 
     getImg() {
@@ -29,7 +29,7 @@ class _1080_1920 extends Component {
 
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip }).then((res) => {
             if (res?.data?.status === true) {
-                console.log(res?.data);
+                // console.log(res?.data);
                 var videoElement = document.getElementById('video');
                 videoElement.src = res?.data?.video?.data;
                 videoElement.load();

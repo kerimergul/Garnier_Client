@@ -31,10 +31,10 @@ class _1080_1920 extends Component {
             if (res?.data?.status === true) {
                 console.log(res?.data);
                 var videoElement = document.getElementById('video');
-                videoElement.src = res?.data?.video;
+                videoElement.src = res?.data?.video?.data;
                 videoElement.load();
                 this.setState({
-                    video: res?.data?.video,
+                    // video: res?.data?.video?.data,
                     skip: skip,
                     first: false
                 })

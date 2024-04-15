@@ -19,7 +19,6 @@ class _1080_1920 extends Component {
         console.log('componentDidMount')
         this.loadVideo();
         this.interval = setInterval(this.loadVideo, 15000);
-        document.getElementById('video').hidden = false;
     }
 
     componentWillUnmount() {
@@ -28,11 +27,14 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        const { first } = this.state;
-        console.log(['componentDidUpdate', first])
+        if (this.state.skip = 1 && this.state.visibleVideo == 'video') {
+            document.getElementById('video').hidden = false;
+            document.getElementById('video2').hidden = true;
+        } else {
+            document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
+            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+        }
 
-        document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
-        document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }
 
     setNextVisibleVideo = (visibleVideo) => {

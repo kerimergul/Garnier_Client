@@ -11,7 +11,7 @@ class _1080_1920 extends Component {
             video: "",
             skip: 1,
             first: true,
-            visibleVideo: 'video',
+            visibleVideo: 'video2',
             firstLoad: true,
         };
     }

@@ -65,6 +65,7 @@ class _1080_1920 extends Component {
                         first: false,
                         visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                     }));
+                    console.log(['skip', this.state.skip, this.state.visibleVideo])
 
                 } else {
                     alert('Video yüklenirken hata oluştu')

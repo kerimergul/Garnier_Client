@@ -204,6 +204,26 @@
   status = 200
 
 [[redirects]]
+  from = "/_640_1024"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_704_1152"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_704_1280"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_720_864"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/_576_336"
   to = "/"
   status = 200
@@ -264,6 +284,11 @@
   status = 200
 
 [[redirects]]
+  from = "/_946_1548"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/_864_1440"
   to = "/"
   status = 200
@@ -305,6 +330,11 @@
 
 [[redirects]]
   from = "/_1152_704"
+  to = "/"
+  status = 200
+  
+[[redirects]]
+  from = "/_1152_1920"
   to = "/"
   status = 200
 

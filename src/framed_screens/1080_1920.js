@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './1080_1920.css';
+import '../styles/1080_1920.css';
 
 const style = { backgroundImage: 'url(/backgrounds/1080_1920.png)' };
 

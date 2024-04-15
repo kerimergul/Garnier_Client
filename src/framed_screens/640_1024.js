@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import '../styles/1440_1080.css';
+import '../styles/640_1024.css';
 
-const style = { backgroundImage: 'url(/backgrounds/1440_1080.png)' };
+const style = { backgroundImage: 'url(/backgrounds/640_1024.png)' };
 
-class _1440_1080 extends Component {
+class _640_1024 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -116,4 +116,4 @@ class _1440_1080 extends Component {
     }
 }
 
-export default _1440_1080;
+export default _640_1024;

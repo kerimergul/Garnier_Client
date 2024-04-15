@@ -1,79 +1,119 @@
 import React, { Component } from "react";
-import "./style.css";
 import axios from "axios";
+import '../styles/1548_946.css';
 
-const style = { backgroundImage: 'url(/backgrounds/bg_1548_946-min.jpg)' };
+const style = { backgroundImage: 'url(/backgrounds/1548_946.png)' };
 
 class _1548_946 extends Component {
     constructor(props) {
         super(props);
-        let skip = Math.floor(Math.random() * 6)
         this.state = {
-            img: `../images/${skip}-min.webp`,
-            skip: Math.floor(Math.random() * 6),
+            video: "",
+            skip: 1,
             first: true,
+            visibleVideo: 'video2',
+            firstLoad: true,
         };
     }
 
     componentDidMount() {
-        // if (this.state.first === true) {
-        //     this.getImg();
-        // }
-        this.interval = setInterval(async () => {
-            this.getImg();
-        }, 6000)
+        console.log('componentDidMount')
+        this.firstLoadVideo();
+        this.interval = setInterval(this.loadVideo, 15000);
     }
 
-    getImg() {
-        let skip = this.state.skip;
-        // if (skip > 74) {
-        //     skip = 0;
-        // }
-        // axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip }).then((res) => {
-        //     if (res?.data?.status === true) {
-        let path = `../images/${skip}-min.webp`;
-        skip = Math.floor(Math.random() * 6)
-        this.setState({
-            img: path,
-            skip: skip,
-            first: false
-        })
-        // } else {
-        //     alert('Resim yüklenirken hata oluştu')
-        // }
-        // }).catch((err) => {
-        //     alert("Resim yüklenirken hata oluştu");
-        //     console.log(err);
-        // })
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+        clearInterval(this.interval);
     }
-    componentWillUnmount() { clearInterval(this.interval) }
 
-    setImgHeigth() {
-        const resim = document.getElementById('img');
-        const sayfaYukseklik = window.innerHeight;
-        const resimYukseklik = resim.clientHeight;
-
-        if (resimYukseklik < sayfaYukseklik * 0.85) {
-            resim.style.left = '-5%';
-            resim.style.width = '55%';
+    componentDidUpdate() {
+        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
+        let visibleVideo = this.state.visibleVideo;
+        if (!this.state.firstLoad) {
+            document.getElementById('video').hidden = visibleVideo !== 'video';
+            document.getElementById('video2').hidden = visibleVideo !== 'video2';
         }
     }
 
+    setNextVisibleVideo = (visibleVideo) => {
+        return visibleVideo === 'video' ? 'video2' : 'video';
+    }
 
-    renderImg(img) {
-        // let data = `${img?.data}`.replace('"', '').replace('"', '');
-        let data = img;
-        return <img id="img" src={data} alt="image_480" class="i_landscape_v1" onLoad={this.setImgHeigth}></img>
+    getVisibleElement = (visibleVideo, first) => {
+        let newVisibleElement = visibleVideo;
+        return document.getElementById(newVisibleElement);
+    }
+
+    loadVideo = () => {
+        console.log('loadVideo')
+        const { skip, first } = this.state;
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
+            .then((res) => {
+                if (res?.data?.status === true) {
+                    const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
+                    videoElement.src = res?.data?.video?.data;
+                    videoElement.load();
+                    if (res?.data?.count == 1) {
+                        this.setState(() => ({
+                            skip: res?.data?.count,
+                            first: false,
+                            visibleVideo: 'video',
+                            firstLoad: false
+                        }));
+                    } else {
+                        this.setState(prevState => ({
+                            skip: res?.data?.count,
+                            first: false,
+                            visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
+                            firstLoad: false
+                        }));
+                    }
+
+                } else {
+                    alert('Video yüklenirken hata oluştu')
+                }
+            })
+            .catch((err) => {
+                alert("Video yüklenirken hata oluştu");
+                console.log(err);
+            })
+    }
+
+    firstLoadVideo = () => {
+        console.log('firstLoadVideo')
+        let skip = 0;
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
+            .then((res) => {
+                if (res?.data?.status === true) {
+                    const videoElement = document.getElementById('video');
+                    videoElement.src = res?.data?.video?.data;
+                    videoElement.load();
+                    this.setState(() => ({
+                        // skip: res?.data?.count,
+                        first: false,
+                        // firstLoad: true
+                    }));
+                    videoElement.hidden = false;
+                } else {
+                    alert('Video yüklenirken hata oluştu')
+                }
+            })
+            .catch((err) => {
+                alert("Video yüklenirken hata oluştu");
+                console.log(err);
+            })
     }
 
     render() {
         return (
-            <div class="bg_landscape"
-                style={style}>
-                {this.state.img !== false ? this.renderImg(this.state.img) : <div></div>}
+            <div id="bg" className="bg" style={style}>
+                <video id="video" loop className="video" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video2" loop className="video" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <div className="hole"></div>
             </div>
         );
-
     }
 }
+
 export default _1548_946;

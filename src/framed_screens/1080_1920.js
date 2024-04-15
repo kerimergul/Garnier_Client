@@ -43,7 +43,7 @@ class _1080_1920 extends Component {
 
     loadVideo = () => {
         console.log('loadVideo')
-        const { skip } = this.state;
+        const { skip, first } = this.state;
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {

@@ -54,7 +54,7 @@ class _1080_1920 extends Component {
                     const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
-                    if (res?.data?.count == 2) {
+                    if (res?.data?.count == 1) {
                         this.setState(() => ({
                             skip: res?.data?.count,
                             first: false,

@@ -48,7 +48,7 @@ class _1080_1920 extends Component {
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,
-                        visibleVideo: prevState.visibleVideo === 'video' ? 'video2' : 'video', // Video yüklendiğinde görünürlüğü değiştir
+                        visibleVideo: !this.state.first && prevState.visibleVideo === 'video' ? 'video2' : 'video', // Video yüklendiğinde görünürlüğü değiştir
                     }))
                 } else {
                     alert('Video yüklenirken hata oluştu')

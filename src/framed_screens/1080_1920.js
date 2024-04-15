@@ -27,7 +27,7 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        console.log(['componentDidUpdate', 'visibleVideo', visibleVideo])
+        console.log(['componentDidUpdate', 'visibleVideo', this.state.visibleVideo])
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }

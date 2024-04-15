@@ -9,10 +9,10 @@ class _1080_1920 extends Component {
         super(props);
         this.state = {
             video: "",
-            skip: 1,
+            skip: 0,
             first: true,
             visibleVideo: 'video',
-            firstLoad: true,
+            firstLoad: false,
         };
     }
 
@@ -29,9 +29,13 @@ class _1080_1920 extends Component {
 
     componentDidUpdate() {
         console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
+        let visibleVideo = this.state.visibleVideo;
+        if (this.state.skip == 2) {
+            visibleVideo = 'video2';
+        }
         if (!this.state.firstLoad) {
-            document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
-            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+            document.getElementById('video').hidden = visibleVideo !== 'video';
+            document.getElementById('video2').hidden = visibleVideo !== 'video2';
         }
     }
 
@@ -74,13 +78,23 @@ class _1080_1920 extends Component {
 
     firstLoadVideo = () => {
         console.log('firstLoadVideo')
-        let skip = 0;
+        const { skip, first } = this.state;
+        this.setState(() => ({
+            skip: skip + 1,
+            first: false,
+            firstLoad: true
+        }));
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {
                     const videoElement = document.getElementById('video');
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
+                    this.setState(() => ({
+                        // skip: res?.data?.count,
+                        first: false,
+                        firstLoad: true
+                    }));
                     if (first) {
                         videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
                     }

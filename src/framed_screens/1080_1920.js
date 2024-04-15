@@ -16,21 +16,25 @@ class _1080_1920 extends Component {
     }
 
     componentDidMount() {
+        console.log('componentDidMount')
         this.loadVideo(); // İlk yükleme
         this.interval = setInterval(this.loadVideo, 17000); // Her 17 saniyede bir yeni video yükle
     }
 
     componentWillUnmount() {
+        console.log('componentWillUnmount')
         clearInterval(this.interval);
     }
 
     componentDidUpdate() {
+        console.log('componentDidUpdate')
         // Video yüklenme işlemi tamamlandığında, hidden özelliğini değiştir
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }
 
     loadVideo = () => {
+        console.log('loadVideo')
         const { skip, first } = this.state;
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {

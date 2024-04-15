@@ -33,6 +33,7 @@ class _1080_1920 extends Component {
     }
 
     setNextVisibleVideo = (visibleVideo, first) => {
+        console.log([visibleVideo, first])
         if (first) {
             return visibleVideo === 'video' ? 'video' : 'video2';
         }

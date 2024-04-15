@@ -11,14 +11,14 @@ class _1080_1920 extends Component {
             video: "",
             skip: 0,
             first: true,
-            visibleVideo: 'video', // İlk video görünür olarak başlasın
+            visibleVideo: 'video',
         };
     }
 
     componentDidMount() {
         console.log('componentDidMount')
-        this.loadVideo(); // İlk yükleme
-        this.interval = setInterval(this.loadVideo, 15000); // Her 17 saniyede bir yeni video yükle
+        this.loadVideo();
+        this.interval = setInterval(this.loadVideo, 15000);
     }
 
     componentWillUnmount() {
@@ -28,12 +28,18 @@ class _1080_1920 extends Component {
 
     componentDidUpdate() {
         console.log('componentDidUpdate')
-        // Video yüklenme işlemi tamamlandığında, hidden özelliğini değiştir
         if (!this.state.first) {
             document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
             document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
         }
 
+    }
+
+    setNextVisibleVideo = (visibleVideo) => {
+        if (this.state.first) {
+            return 'video';
+        }
+        return visibleVideo === 'video' ? 'video2' : 'video';
     }
 
     loadVideo = () => {
@@ -48,7 +54,7 @@ class _1080_1920 extends Component {
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,
-                        visibleVideo: !this.state.first && prevState.visibleVideo === 'video' ? 'video2' : 'video', // Video yüklendiğinde görünürlüğü değiştir
+                        visibleVideo: setNextVisibleVideo(prevState.visibleVideo),
                     }))
                 } else {
                     alert('Video yüklenirken hata oluştu')

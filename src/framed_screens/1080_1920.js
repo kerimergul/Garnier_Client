@@ -60,9 +60,6 @@ class _1080_1920 extends Component {
                         visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                         firstLoad: false
                     }));
-                    if (first) {
-                        videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
-                    }
                 } else {
                     alert('Video yüklenirken hata oluştu')
                 }
@@ -87,9 +84,7 @@ class _1080_1920 extends Component {
                         first: false,
                         // firstLoad: true
                     }));
-                    if (first) {
-                        videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
-                    }
+                    videoElement.hidden = false;
                 } else {
                     alert('Video yüklenirken hata oluştu')
                 }

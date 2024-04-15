@@ -27,17 +27,20 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        console.log(['componentDidUpdate', 'visibleVideo', this.state.visibleVideo])
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }
 
-    setNextVisibleVideo = (visibleVideo, first) => {
-        console.log(['setNextVisibleVideo', visibleVideo, first])
-        // if (first) {
-        //     return visibleVideo === 'video' ? 'video' : 'video2';
-        // }
+    setNextVisibleVideo = (visibleVideo) => {
         return visibleVideo === 'video' ? 'video2' : 'video';
+    }
+
+    getVisibleElement = (visibleVideo, first) => {
+        let newVisibleElement = visibleVideo;
+        if (first) {
+            newVisibleElement = this.setNextVisibleVideo(visibleVideo);
+        }
+        return document.getElementById(newVisibleElement);
     }
 
     loadVideo = () => {
@@ -46,13 +49,13 @@ class _1080_1920 extends Component {
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {
-                    const videoElement = document.getElementById(this.state.visibleVideo);
+                    const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,
-                        visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo, this.state.first),
+                        visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                     }));
 
                 } else {

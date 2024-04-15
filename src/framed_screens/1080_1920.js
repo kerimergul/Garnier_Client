@@ -27,13 +27,13 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        console.log('componentDidUpdate')
+        console.log(['componentDidUpdate', 'visibleVideo', visibleVideo])
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }
 
     setNextVisibleVideo = (visibleVideo, first) => {
-        console.log([visibleVideo, first])
+        console.log(['setNextVisibleVideo', visibleVideo, first])
         if (first) {
             return visibleVideo === 'video' ? 'video' : 'video2';
         }

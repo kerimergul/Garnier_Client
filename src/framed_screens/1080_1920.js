@@ -27,9 +27,9 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])      
-            document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
-            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';     
+        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
+        document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
+        document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }
 
     setNextVisibleVideo = (visibleVideo) => {
@@ -55,6 +55,9 @@ class _1080_1920 extends Component {
                         first: false,
                         visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                     }));
+                    if (first) {
+                        videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
+                    }
                 } else {
                     alert('Video yüklenirken hata oluştu')
                 }

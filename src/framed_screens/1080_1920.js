@@ -19,6 +19,7 @@ class _1080_1920 extends Component {
         console.log('componentDidMount')
         this.loadVideo();
         this.interval = setInterval(this.loadVideo, 15000);
+        document.getElementById('video').hidden = false;
     }
 
     componentWillUnmount() {

@@ -54,12 +54,22 @@ class _1080_1920 extends Component {
                     const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
-                    this.setState(prevState => ({
-                        skip: res?.data?.count,
-                        first: false,
-                        visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
-                        firstLoad: false
-                    }));
+                    if (res?.data?.count == 2) {
+                        this.setState(() => ({
+                            skip: res?.data?.count,
+                            first: false,
+                            visibleVideo: 'video2',
+                            firstLoad: false
+                        }));
+                    } else {
+                        this.setState(prevState => ({
+                            skip: res?.data?.count,
+                            first: false,
+                            visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
+                            firstLoad: false
+                        }));
+                    }
+
                 } else {
                     alert('Video yüklenirken hata oluştu')
                 }

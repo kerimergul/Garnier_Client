@@ -58,7 +58,7 @@ class _1080_1920 extends Component {
                         this.setState(() => ({
                             skip: res?.data?.count,
                             first: false,
-                            visibleVideo: 'video2',
+                            visibleVideo: 'video',
                             firstLoad: false
                         }));
                     } else {

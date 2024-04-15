@@ -17,6 +17,7 @@ class _1080_1920 extends Component {
 
     componentDidMount() {
         console.log('componentDidMount')
+        document.getElementById('video2').hidden = false;
         this.loadVideo(); // İlk yükleme
         this.interval = setInterval(this.loadVideo, 17000); // Her 17 saniyede bir yeni video yükle
     }

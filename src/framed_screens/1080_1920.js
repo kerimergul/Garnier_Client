@@ -11,7 +11,7 @@ class _1080_1920 extends Component {
             video: "",
             skip: 0,
             first: true,
-            visibleVideo: 'video2',
+            visibleVideo: 'video',
         };
     }
 
@@ -36,10 +36,7 @@ class _1080_1920 extends Component {
     }
 
     getVisibleElement = (visibleVideo, first) => {
-        let newVisibleElement = visibleVideo;
-        if (first) {
-            newVisibleElement = this.setNextVisibleVideo(visibleVideo);
-        }
+        let newVisibleElement = visibleVideo;      
         return document.getElementById(newVisibleElement);
     }
 
@@ -52,6 +49,9 @@ class _1080_1920 extends Component {
                     const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
+                    if (this.state.first) {
+                        videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
+                    }
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,

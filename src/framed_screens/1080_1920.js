@@ -28,6 +28,9 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
+        const { first } = this.state;
+        console.log(['componentDidUpdate', first])
+
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
     }
@@ -37,7 +40,7 @@ class _1080_1920 extends Component {
     }
 
     getVisibleElement = (visibleVideo, first) => {
-        let newVisibleElement = visibleVideo;      
+        let newVisibleElement = visibleVideo;
         return document.getElementById(newVisibleElement);
     }
 

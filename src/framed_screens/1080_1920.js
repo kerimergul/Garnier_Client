@@ -11,7 +11,7 @@ class _1080_1920 extends Component {
             video: "",
             skip: 0,
             first: true,
-            visibleVideo: 'video',
+            visibleVideo: 'video2',
         };
     }
 
@@ -34,9 +34,9 @@ class _1080_1920 extends Component {
 
     setNextVisibleVideo = (visibleVideo, first) => {
         console.log(['setNextVisibleVideo', visibleVideo, first])
-        if (first) {
-            return visibleVideo === 'video' ? 'video' : 'video2';
-        }
+        // if (first) {
+        //     return visibleVideo === 'video' ? 'video' : 'video2';
+        // }
         return visibleVideo === 'video' ? 'video2' : 'video';
     }
 

@@ -11,13 +11,12 @@ class _1080_1920 extends Component {
             video: "",
             skip: 0,
             first: true,
-            visibleVideo: 'video', // İlk video görünür olarak başlasın
+            visibleVideo: 'video2', // İlk video görünür olarak başlasın
         };
     }
 
     componentDidMount() {
         console.log('componentDidMount')
-        document.getElementById('video2').hidden = false;
         this.loadVideo(); // İlk yükleme
         this.interval = setInterval(this.loadVideo, 17000); // Her 17 saniyede bir yeni video yükle
     }

@@ -11,14 +11,14 @@ class _1080_1920 extends Component {
             video: "",
             skip: 0,
             first: true,
-            visibleVideo: 'video2', // İlk video görünür olarak başlasın
+            visibleVideo: 'video', // İlk video görünür olarak başlasın
         };
     }
 
     componentDidMount() {
         console.log('componentDidMount')
         this.loadVideo(); // İlk yükleme
-        this.interval = setInterval(this.loadVideo, 17000); // Her 17 saniyede bir yeni video yükle
+        this.interval = setInterval(this.loadVideo, 15000); // Her 17 saniyede bir yeni video yükle
     }
 
     componentWillUnmount() {
@@ -29,13 +29,16 @@ class _1080_1920 extends Component {
     componentDidUpdate() {
         console.log('componentDidUpdate')
         // Video yüklenme işlemi tamamlandığında, hidden özelliğini değiştir
-        document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
-        document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+        if (!this.state.first) {
+            document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
+            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+        }
+
     }
 
     loadVideo = () => {
         console.log('loadVideo')
-        const { skip, first } = this.state;
+        const { skip } = this.state;
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {

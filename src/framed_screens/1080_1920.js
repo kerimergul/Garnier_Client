@@ -27,6 +27,7 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
+        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
         if (this.state.skip == 1 && this.state.visibleVideo == 'video') {
             document.getElementById('video').hidden = false;
             document.getElementById('video2').hidden = true;

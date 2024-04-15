@@ -54,7 +54,7 @@ class _1080_1920 extends Component {
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,
-                        visibleVideo: setNextVisibleVideo(prevState.visibleVideo),
+                        visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                     }))
                 } else {
                     alert('Video yüklenirken hata oluştu')

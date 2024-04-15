@@ -28,7 +28,6 @@ class _1080_1920 extends Component {
 
     componentDidUpdate() {
         console.log('componentDidUpdate')
-
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
 
@@ -51,7 +50,11 @@ class _1080_1920 extends Component {
                         skip: res?.data?.count,
                         first: false,
                         visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
-                    }))
+                    }));
+                    if (this.state.first) {
+                        document.getElementById('video2').hidden = false;
+                        document.getElementById('video2').hidden = true;
+                    }
                 } else {
                     alert('Video yüklenirken hata oluştu')
                 }

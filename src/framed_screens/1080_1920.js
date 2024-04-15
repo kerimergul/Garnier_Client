@@ -12,12 +12,13 @@ class _1080_1920 extends Component {
             skip: 0,
             first: true,
             visibleVideo: 'video',
+            firstLoad: false,
         };
     }
 
     componentDidMount() {
         console.log('componentDidMount')
-        this.loadVideo();
+        this.firstLoadVideo();
         this.interval = setInterval(this.loadVideo, 15000);
     }
 
@@ -28,8 +29,10 @@ class _1080_1920 extends Component {
 
     componentDidUpdate() {
         console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
-        document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
-        document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+        if (!this.state.firstLoad) {
+            document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
+            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+        }
     }
 
     setNextVisibleVideo = (visibleVideo) => {
@@ -54,6 +57,34 @@ class _1080_1920 extends Component {
                         skip: res?.data?.count,
                         first: false,
                         visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
+                        firstLoad: false
+                    }));
+                    if (first) {
+                        videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
+                    }
+                } else {
+                    alert('Video yüklenirken hata oluştu')
+                }
+            })
+            .catch((err) => {
+                alert("Video yüklenirken hata oluştu");
+                console.log(err);
+            })
+    }
+
+    firstLoadVideo = () => {
+        console.log('firstLoadVideo')
+        const { skip, first } = this.state;
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
+            .then((res) => {
+                if (res?.data?.status === true) {
+                    const videoElement = document.getElementById('video');
+                    videoElement.src = res?.data?.video?.data;
+                    videoElement.load();
+                    this.setState(() => ({
+                        skip: res?.data?.count,
+                        first: false,
+                        firstLoad: true
                     }));
                     if (first) {
                         videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır

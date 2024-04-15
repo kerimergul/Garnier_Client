@@ -27,15 +27,9 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
-        if (this.state.skip == 1 && this.state.visibleVideo == 'video2') {
-            document.getElementById('video').hidden = false;
-            document.getElementById('video2').hidden = true;
-        } else {
+        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])      
             document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
-            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
-        }
-
+            document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';     
     }
 
     setNextVisibleVideo = (visibleVideo) => {
@@ -56,17 +50,11 @@ class _1080_1920 extends Component {
                     const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
-                    if (this.state.first) {
-                        videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
-                    }
-                    console.log(['new skip', res?.data?.count])
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,
                         visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                     }));
-                    console.log(['skip', this.state.skip, this.state.visibleVideo])
-
                 } else {
                     alert('Video yüklenirken hata oluştu')
                 }

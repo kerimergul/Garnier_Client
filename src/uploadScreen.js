@@ -30,7 +30,7 @@ class UploadScreen extends Component {
                     throw error;
                 }
                 axios.post("https://www.tesvik-sgk.com/signal/api/video/upload", { video }).then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (res?.data?.status === true) {
                         alert("video başarıyla yüklendi");
                     } else {

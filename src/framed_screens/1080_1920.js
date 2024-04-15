@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-// import "./style.css";
 import axios from "axios";
 import './1080_1920.css';
+
 const style = { backgroundImage: 'url(/backgrounds/1080_1920.png)' };
-
-
 
 class _1080_1920 extends Component {
     constructor(props) {
@@ -13,52 +11,57 @@ class _1080_1920 extends Component {
             video: "",
             skip: 0,
             first: true,
+            visibleVideo: 'video', // İlk video görünür olarak başlasın
         };
     }
+
     componentDidMount() {
-        if (this.state.first === true) {
-            this.getImg();
-        }
-        this.interval = setInterval(async () => {
-            this.getImg();
-        }, 20000)
+        this.loadVideo(); // İlk yükleme
+        this.interval = setInterval(this.loadVideo, 17000); // Her 17 saniyede bir yeni video yükle
     }
 
-    getImg() {
-        let skip = this.state.skip;
-
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip }).then((res) => {
-            if (res?.data?.status === true) {
-                // console.log(res?.data);
-                var videoElement = document.getElementById('video');
-                videoElement.src = res?.data?.video?.data;
-                videoElement.load();
-                this.setState({
-                    // video: res?.data?.video?.data,
-                    skip: skip,
-                    first: false
-                })
-            } else {
-                alert('Video yüklenirken hata oluştu')
-            }
-        }).catch((err) => {
-            alert("Video yüklenirken hata oluştu");
-            console.log(err);
-        })
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
-    componentWillUnmount() { clearInterval(this.interval) }
+    componentDidUpdate() {
+        // Video yüklenme işlemi tamamlandığında, hidden özelliğini değiştir
+        document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
+        document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
+    }
+
+    loadVideo = () => {
+        const { skip, first } = this.state;
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
+            .then((res) => {
+                if (res?.data?.status === true) {
+                    const videoElement = document.getElementById(this.state.visibleVideo);
+                    videoElement.src = res?.data?.video?.data;
+                    videoElement.load();
+                    this.setState(prevState => ({
+                        skip: res?.data?.count,
+                        first: false,
+                        visibleVideo: prevState.visibleVideo === 'video' ? 'video2' : 'video', // Video yüklendiğinde görünürlüğü değiştir
+                    }))
+                } else {
+                    alert('Video yüklenirken hata oluştu')
+                }
+            })
+            .catch((err) => {
+                alert("Video yüklenirken hata oluştu");
+                console.log(err);
+            })
+    }
 
     render() {
         return (
-            <div id="bg" class="bg" style={style}>
-                <video id="video" loop class="video" height="1516.8" width="708.48" autoplay="true" muted="true">
-                </video>
-                <div class="hole">
-                </div>
+            <div id="bg" className="bg" style={style}>
+                <video id="video" loop className="video" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video2" loop className="video" height="1516.8" width="708.48" autoPlay="true" muted="true" hidden="true"></video>
+                <div className="hole"></div>
             </div>
         );
-
     }
 }
+
 export default _1080_1920;

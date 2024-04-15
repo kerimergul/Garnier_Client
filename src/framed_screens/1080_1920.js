@@ -30,13 +30,12 @@ class _1080_1920 extends Component {
         console.log('componentDidUpdate')
         document.getElementById('video').hidden = this.state.visibleVideo !== 'video';
         document.getElementById('video2').hidden = this.state.visibleVideo !== 'video2';
-        if (this.state.first) {
-            document.getElementById('video').hidden = false;
-            document.getElementById('video2').hidden = true;
-        }
     }
 
-    setNextVisibleVideo = (visibleVideo) => {
+    setNextVisibleVideo = (visibleVideo, first) => {
+        if (first) {
+            return visibleVideo === 'video' ? 'video' : 'video2';
+        }
         return visibleVideo === 'video' ? 'video2' : 'video';
     }
 
@@ -52,7 +51,7 @@ class _1080_1920 extends Component {
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,
-                        visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
+                        visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo, this.state.first),
                     }));
 
                 } else {

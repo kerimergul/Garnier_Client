@@ -27,7 +27,7 @@ class _1080_1920 extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.skip = 1 && this.state.visibleVideo == 'video') {
+        if (this.state.skip = 0 && this.state.visibleVideo == 'video') {
             document.getElementById('video').hidden = false;
             document.getElementById('video2').hidden = true;
         } else {
@@ -58,6 +58,7 @@ class _1080_1920 extends Component {
                     if (this.state.first) {
                         videoElement.hidden = false; // İlk gelen video hidden özelliğini kaldır
                     }
+                    console.log(['new skip', res?.data?.count])
                     this.setState(prevState => ({
                         skip: res?.data?.count,
                         first: false,

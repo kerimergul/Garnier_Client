@@ -79,6 +79,11 @@ class _1080_1920 extends Component {
     firstLoadVideo = () => {
         console.log('firstLoadVideo')
         const { skip, first } = this.state;
+        this.setState(() => ({
+            skip: skip + 1,
+            first: false,
+            firstLoad: true
+        }));
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {
@@ -86,7 +91,7 @@ class _1080_1920 extends Component {
                     videoElement.src = res?.data?.video?.data;
                     videoElement.load();
                     this.setState(() => ({
-                        skip: res?.data?.count,
+                        // skip: res?.data?.count,
                         first: false,
                         firstLoad: true
                     }));

@@ -3,6 +3,9 @@
     font-size: medium;
     font-weight: bold;
     opacity: 0.7;
-    width: 50px;
-    height: 20px;
+    width: 25%;
+    height: 5%;
+    top: 98%;
+    left: 44%;
+    position: absolute;
 }

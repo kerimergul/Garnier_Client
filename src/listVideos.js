@@ -20,12 +20,23 @@ class ListVideos extends Component {
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip })
             .then(response => {
                 if (response.data.status) {
-                    this.setState(prevState => ({
-                        skip: prevState.skip + 1,
-                    }), this.fetchVideos);
+                    if (response?.data?.video?.data) {
+                        let videoData = [{
+                            data: video?.data,
+                            skip: skip
+                        }]
+                        this.setState(prevState => ({
+                            skip: prevState.skip + 1,
+                            videos: [...prevState.videos, ...videoData],
+                        }), this.fetchVideos);
+                    } else {
+                        this.setState(prevState => ({
+                            skip: prevState.skip + 1,
+                        }), this.fetchVideos);
+                    }
                 } else {
                     this.setState(prevState => ({
-                        videos: [...prevState.videos, ...response.data.videos],
+
                     }));
                 }
             })

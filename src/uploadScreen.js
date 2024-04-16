@@ -98,7 +98,7 @@ class UploadScreen extends Component {
                         <h3>Pharmaton Video Yükle</h3>
                         <div class="drop_box">
                             <header>
-                                <h4>Dosyayı seçiniz (1080x1920)</h4>
+                                <h4>Dosyayı seçiniz</h4>
                             </header>
                             <p>Desteklenen dosya tipleri: MP4</p>
                             <input type="file" accept="video/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />

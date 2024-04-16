@@ -10,6 +10,7 @@ class ListVideos extends Component {
             selectedVideos: [],
             skip: 0,
             stop: false,
+            deleteLoading: false,
         };
     }
 
@@ -29,6 +30,7 @@ class ListVideos extends Component {
                             let videoData = [{
                                 data: response?.data?.video?.data,
                                 skip: skip,
+                                id: response?.data?.video?._id
                             }]
                             this.setState(prevState => ({
                                 skip: prevState.skip + 1,
@@ -71,18 +73,22 @@ class ListVideos extends Component {
 
     handleDeleteSelected = () => {
         const { selectedVideos } = this.state;
-        axios.post("delete_api_url", { selectedVideos })
+        let idList = selectedVideos.map((e) => e._id);
+        this.setState({ deleteLoading: true });
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/setPassive", { idList })
             .then(response => {
-                this.setState({ selectedVideos: [] });
+                console.log(['setPassive response', response?.data])
+                this.setState({ deleteLoading: false });
             })
             .catch(error => {
                 console.error("Error deleting selected videos:", error);
+                this.setState({ deleteLoading: false });
             });
     }
 
     showSelectedVideo = () => {
         const { selectedVideos } = this.state;
-        axios.post("show_selected_api", { selectedVideos })
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/setShowOnlyInStageScreen", { selectedVideos })
             .then(response => {
                 this.setState({ selectedVideos: [] });
             })

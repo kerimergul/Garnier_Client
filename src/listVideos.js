@@ -80,6 +80,17 @@ class ListVideos extends Component {
             });
     }
 
+    showSelectedVideo = () => {
+        const { selectedVideos } = this.state;
+        axios.post("show_selected_api", { selectedVideos })
+            .then(response => {
+                this.setState({ selectedVideos: [] });
+            })
+            .catch(error => {
+                console.error("Error show selected videos:", error);
+            });
+    }
+
     render() {
         const { videos, selectedVideos } = this.state;
         return (
@@ -87,9 +98,14 @@ class ListVideos extends Component {
                 <header>
                     <h4>Yüklenmiş Videolar</h4>
                 </header>
-                <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
-                    Seçilenleri Sil
-                </button>
+                <div class='row'>
+                    <button class="button-7" onClick={this.showSelectedVideo} disabled={selectedVideos.length === 0}>
+                        Sabit Ekranda Sadece Seçileni Göster
+                    </button>
+                    <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
+                        Seçilenleri Sil
+                    </button>
+                </div>
                 <div class='row'>
                     <div>
                         {videos.map((video, index) => (

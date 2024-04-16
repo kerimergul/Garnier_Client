@@ -28,7 +28,7 @@ class UploadScreen extends Component {
             loading: true
         }));
         try {
-            blobcnv(data, function (error, video) {
+            blobcnv(data, (error, video) => {
                 if (error) {
                     throw error;
                 }

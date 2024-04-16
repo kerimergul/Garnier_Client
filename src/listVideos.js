@@ -49,9 +49,20 @@ class ListVideos extends Component {
     }
 
     handleVideoSelect = (videoSkip) => {
-        this.setState(prevState => ({
-            selectedVideos: [...prevState.selectedVideos, videoSkip],
-        }));
+        // Seçili videoya eriş
+        const selectedIndex = this.state.selectedVideos.indexOf(videoSkip);
+        // Eğer seçili ise, listeden çıkar, değilse ekler
+        if (selectedIndex === -1) {
+            // Seçilmemiş, listeye ekle
+            this.setState(prevState => ({
+                selectedVideos: [...prevState.selectedVideos, videoSkip],
+            }));
+        } else {
+            // Seçilmiş, listeden çıkar
+            this.setState(prevState => ({
+                selectedVideos: prevState.selectedVideos.filter(skip => skip !== videoSkip),
+            }));
+        }
     }
 
     handleDeleteSelected = () => {
@@ -72,11 +83,6 @@ class ListVideos extends Component {
                 <div>
                     {videos.map((video, index) => (
                         <div key={index}>
-                            {/* Her video için video etiketi oluştur */}
-                            <video controls>
-                                <source src={`data:video/mp4;base64,${video.data}`} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
                             <input
                                 type="radio"
                                 value={video.skip}
@@ -84,6 +90,11 @@ class ListVideos extends Component {
                                 onChange={() => this.handleVideoSelect(video.skip)}
                                 title={video.skip}
                             />
+                            <video controls>
+                                <source src={`${video.data}`} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+
                         </div>
                     ))}
                 </div>

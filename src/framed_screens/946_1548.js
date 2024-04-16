@@ -108,8 +108,8 @@ class _946_1548 extends Component {
     render() {
         return (
             <div id="bg" className="bg" style={style}>
-                <video id="video" loop className="video" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
-                <video id="video2" loop className="video" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video" loop className="video_946_1548" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video2" loop className="video_946_1548" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <div className="hole"></div>
             </div>
         );

@@ -52,10 +52,8 @@ class ListVideos extends Component {
     }
 
     handleVideoSelect = (videoSkip) => {
-        console.log(['handleVideoSelect', videoSkip])
         // Seçili videoya eriş
         const selectedIndex = this.state.selectedVideos.indexOf(videoSkip);
-        console.log(['selectedIndex', selectedIndex])
         // Eğer seçili ise, listeden çıkar, değilse ekler
         if (selectedIndex === -1) {
             // Seçilmemiş, listeye ekle
@@ -63,12 +61,10 @@ class ListVideos extends Component {
                 selectedVideos: [...prevState.selectedVideos, videoSkip],
             }));
         } else {
-            console.log(['Seçilmiş, listeden çıkar', videoSkip])
             // Seçilmiş, listeden çıkar
             this.setState(prevState => ({
                 selectedVideos: prevState.selectedVideos.filter(skip => skip !== videoSkip),
             }));
-            console.log(['Çıkarılmış liste', this.state.selectedVideos.map((e) => e.skip)])
 
         }
     }

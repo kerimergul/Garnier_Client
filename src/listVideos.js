@@ -72,7 +72,7 @@ class ListVideos extends Component {
     }
 
     handleDeleteSelected = () => {
-        const { selectedVideos } = this.state;
+        const { selectedVideos, videos } = this.state;
         console.log(selectedVideos);
         let idList = videos.map((e) => {
             selectedVideos.map((s) => {

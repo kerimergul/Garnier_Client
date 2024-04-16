@@ -91,7 +91,7 @@ class ListVideos extends Component {
                                 onChange={() => this.handleVideoSelect(video.skip)}
                                 title={video.skip}
                             />
-                            <video controls style={{ margin: '10px' }}>
+                            <video controls style={{ margin: '10px' }} width={108} height={192} >
                                 <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
                                 Your browser does not support the video tag.
                             </video>

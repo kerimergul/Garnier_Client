@@ -113,8 +113,7 @@ class UploadScreen extends Component {
                                 <h4>Dosyayı seçiniz</h4>
                             </header>
                             <p>Desteklenen dosya tipleri: MP4</p>
-                            <input type="file" accept="video/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />
-                            {this.state.loading ? <div class="loader"></div> : <div></div>}
+                            {this.state.loading ? <div class="loader"></div> : <input type="file" accept="video/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />}
                         </div>
                     </div>
                 </div>

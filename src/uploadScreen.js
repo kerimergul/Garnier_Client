@@ -17,44 +17,44 @@ class UploadScreen extends Component {
     }
 
     setData(data) {
-        this.setState({
+        this.setState(() => ({
             data: data
-        })
+        }));
     }
 
-    async uploadToServer(data) {
+    uploadToServer = (data) => {
         alert('Yükleme işlemi başladı.')
-        this.setState({
+        this.setState(() => ({
             loading: true
-        })
+        }));
         try {
             blobcnv(data, function (error, video) {
                 if (error) {
                     throw error;
                 }
                 axios.post("https://www.tesvik-sgk.com/signal/api/video/upload", { video }).then((res) => {
-                    // console.log(res);
+                    console.log(res);
                     if (res?.data?.status === true) {
                         alert("video başarıyla yüklendi");
                     } else {
                         alert('video yüklenirken hata oluştu')
                     }
-                    this.setState({
+                    this.setState(() => ({
                         loading: false
-                    })
+                    }));
                 }).catch((err) => {
                     alert("video yüklenirken hata oluştu");
-                    this.setState({
+                    this.setState(() => ({
                         loading: false
-                    })
+                    }));
                     console.log(err);
                 })
             })
         } catch (err) {
             console.log(err);
-            this.setState({
+            this.setState(() => ({
                 loading: false
-            })
+            }));
         }
     }
 

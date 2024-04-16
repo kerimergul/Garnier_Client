@@ -83,15 +83,15 @@ class ListVideos extends Component {
                 <div>
                     {videos.map((video, index) => (
                         <div key={index}>
-                            <input
+                            <input style={{ margin: '10px' }}
                                 type="radio"
                                 value={video.skip}
                                 checked={selectedVideos.includes(video.skip)}
                                 onChange={() => this.handleVideoSelect(video.skip)}
                                 title={video.skip}
                             />
-                            <video controls>
-                                <source src={`${video.data}`} type="video/mp4" />
+                            <video controls style={{ margin: '10px' }}>
+                                <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
                                 Your browser does not support the video tag.
                             </video>
 

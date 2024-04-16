@@ -22,8 +22,8 @@ class ListVideos extends Component {
                 if (response.data.status) {
                     if (response?.data?.video?.data) {
                         let videoData = [{
-                            data: video?.data,
-                            skip: skip
+                            data: response?.data?.video?.data,
+                            skip: prevState.skip
                         }]
                         this.setState(prevState => ({
                             skip: prevState.skip + 1,
@@ -79,6 +79,7 @@ class ListVideos extends Component {
                                 value={video.skip}
                                 checked={selectedVideos.includes(video.skip)}
                                 onChange={() => this.handleVideoSelect(video.skip)}
+                                title={video.skip}
                             />
                         </div>
                     ))}

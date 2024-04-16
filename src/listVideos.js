@@ -8,6 +8,7 @@ class ListVideos extends Component {
             videos: [],
             selectedVideos: [],
             skip: 0,
+            stop: false,
         };
     }
 
@@ -16,33 +17,35 @@ class ListVideos extends Component {
     }
 
     fetchVideos = () => {
-        const { skip } = this.state;
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip })
-            .then(response => {
-                if (response.data.status) {
-                    if (response?.data?.video?.data) {
-                        let videoData = [{
-                            data: response?.data?.video?.data,
-                            skip: skip
-                        }]
-                        this.setState(prevState => ({
-                            skip: prevState.skip + 1,
-                            videos: [...prevState.videos, ...videoData],
-                        }), this.fetchVideos);
+        if (!this.state.stop) {
+            const { skip } = this.state;
+            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip })
+                .then(response => {
+                    if (response.data.status) {
+                        if (response?.data?.video?.data) {
+                            let videoData = [{
+                                data: response?.data?.video?.data,
+                                skip: skip
+                            }]
+                            this.setState(prevState => ({
+                                skip: prevState.skip + 1,
+                                videos: [...prevState.videos, ...videoData],
+                            }), this.fetchVideos);
+                        } else {
+                            this.setState(prevState => ({
+                                skip: prevState.skip + 1,
+                            }), this.fetchVideos);
+                        }
                     } else {
                         this.setState(prevState => ({
-                            skip: prevState.skip + 1,
-                        }), this.fetchVideos);
+                            stop: true,
+                        }));
                     }
-                } else {
-                    this.setState(prevState => ({
-
-                    }));
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching videos:", error);
-            });
+                })
+                .catch(error => {
+                    console.error("Error fetching videos:", error);
+                });
+        }
     }
 
     handleVideoSelect = (videoSkip) => {

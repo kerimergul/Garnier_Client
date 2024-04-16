@@ -96,7 +96,7 @@ class ListVideos extends Component {
                                     value={video.skip}
                                     checked={selectedVideos.includes(video.skip)}
                                     onClick={() => this.handleVideoSelect(video.skip)}
-                                    title={video.skip}
+                                    title={`Video Numara: ${video.skip}`}                                    
                                 />
                                 <video controls style={{ margin: '10px' }} width={108} height={192} >
                                     <source src={`${video.data}`} type="video/mp4" width={108} height={192} />

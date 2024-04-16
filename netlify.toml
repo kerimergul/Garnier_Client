@@ -4,6 +4,11 @@
   status = 200
 
 [[redirects]]
+  from = "/listVideos"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/uploadAkmerkez_Akbank"
   to = "/"
   status = 200

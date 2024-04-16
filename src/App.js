@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import LandingScreen from "./screens/landingScreen";
 import LandingScreen1080 from "./1080p/landingScreen1080p";
 import UploadScreen from "./uploadScreen.js";
+import ListVideos from "./listVideos.js";
+
 import _512_786 from "./framed_screens/512_786";
 import _640_1024 from "./framed_screens/640_1024";
 import _704_1152 from "./framed_screens/704_1152";
@@ -39,7 +41,9 @@ class App extends Component {
       return <UploadScreen></UploadScreen>
     }
 
- 
+    else if (window.location.href.includes("/listVideos")) {
+      return <ListVideos></ListVideos>
+    } 
 
     else if (window.location.href.includes("/_512_786")) {
       return <_512_786></_512_786>

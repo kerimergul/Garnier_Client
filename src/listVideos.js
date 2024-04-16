@@ -19,7 +19,8 @@ class ListVideos extends Component {
     fetchVideos = () => {
         if (!this.state.stop) {
             const { skip } = this.state;
-            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip })
+            let list = true;
+            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip, list })
                 .then(response => {
                     if (response.data.status) {
                         if (response?.data?.video?.data) {

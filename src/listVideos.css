@@ -3,6 +3,8 @@
 
 /* CSS */
 .button-7 {
+  margin-top: 5px;
+  height: 40px;
   background-color: #0095ff;
   border: 1px solid transparent;
   border-radius: 3px;

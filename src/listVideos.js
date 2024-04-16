@@ -99,7 +99,7 @@ class ListVideos extends Component {
                                     type="radio"
                                     value={video.skip}
                                     checked={selectedVideos.includes(video.skip)}
-                                    onChange={() => this.handleVideoSelect(video.skip)}
+                                    onClick={() => this.handleVideoSelect(video.skip)}
                                     title={video.skip}
                                 />
                                 <video controls style={{ margin: '10px' }} width={108} height={192} >

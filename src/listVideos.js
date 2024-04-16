@@ -74,8 +74,9 @@ class ListVideos extends Component {
     handleDeleteSelected = () => {
         const { selectedVideos, videos } = this.state;
         console.log(selectedVideos);
-        let idList = videos.map((e) => {
-            selectedVideos.map((s) => {
+        let idList = selectedVideos.map((s) => {
+            videos.map((e) => {
+                console.log(['videos', e, s])
                 if (e.skip == s) {
                     return e.id;
                 }

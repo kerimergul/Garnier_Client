@@ -23,7 +23,7 @@ class ListVideos extends Component {
                     if (response?.data?.video?.data) {
                         let videoData = [{
                             data: response?.data?.video?.data,
-                            skip: prevState.skip
+                            skip: skip
                         }]
                         this.setState(prevState => ({
                             skip: prevState.skip + 1,

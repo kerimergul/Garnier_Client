@@ -7,12 +7,11 @@ class ListVideos extends Component {
         this.state = {
             videos: [],
             selectedVideos: [],
-            skip: 0, // Skip değerini state içinde tut
+            skip: 0,
         };
     }
 
     componentDidMount() {
-        // İlk sorguyu yap
         this.fetchVideos();
     }
 
@@ -21,14 +20,12 @@ class ListVideos extends Component {
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip })
             .then(response => {
                 if (response.data.status) {
-                    // Status true ise skip değerini artır ve yeni bir sorgu yap
                     this.setState(prevState => ({
                         skip: prevState.skip + 1,
                     }), this.fetchVideos);
                 } else {
-                    // Status false ise videoları state'e ekle
                     this.setState(prevState => ({
-                        videos: [...prevState.videos, ...response.data],
+                        videos: [...prevState.videos, ...response.data.videos],
                     }));
                 }
             })
@@ -58,13 +55,14 @@ class ListVideos extends Component {
         const { videos, selectedVideos } = this.state;
         return (
             <div>
-                <button onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
-                    Seçilenleri Sil
-                </button>
                 <div>
-                    {videos.map(video => (
-                        <div key={video.id}>
-                            <img src={video.thumbnail} alt="Video Thumbnail" />
+                    {videos.map((video, index) => (
+                        <div key={index}>
+                            {/* Her video için video etiketi oluştur */}
+                            <video controls>
+                                <source src={`data:video/mp4;base64,${video.data}`} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
                             <input
                                 type="radio"
                                 value={video.skip}
@@ -73,7 +71,10 @@ class ListVideos extends Component {
                             />
                         </div>
                     ))}
-                </div>                
+                </div>
+                <button onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
+                    Seçilenleri Sil
+                </button>
             </div>
         );
     }

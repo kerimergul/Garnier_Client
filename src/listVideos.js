@@ -73,7 +73,14 @@ class ListVideos extends Component {
 
     handleDeleteSelected = () => {
         const { selectedVideos } = this.state;
-        let idList = selectedVideos.map((e) => e._id);
+        console.log(selectedVideos);
+        let idList = videos.map((e) => {
+            selectedVideos.map((s) => {
+                if (e.skip == s) {
+                    return e.id;
+                }
+            })
+        });
         this.setState({ deleteLoading: true });
         axios.post("https://www.tesvik-sgk.com/signal/api/video/setPassive", { idList })
             .then(response => {

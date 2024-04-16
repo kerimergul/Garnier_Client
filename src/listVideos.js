@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './listVideos.css';
 
 class ListVideos extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class ListVideos extends Component {
     componentDidMount() {
         this.fetchVideos();
     }
+
 
     fetchVideos = () => {
         if (!this.state.stop) {
@@ -50,8 +52,10 @@ class ListVideos extends Component {
     }
 
     handleVideoSelect = (videoSkip) => {
+        console.log(['handleVideoSelect', videoSkip])
         // Seçili videoya eriş
         const selectedIndex = this.state.selectedVideos.indexOf(videoSkip);
+        console.log(['selectedIndex', selectedIndex])
         // Eğer seçili ise, listeden çıkar, değilse ekler
         if (selectedIndex === -1) {
             // Seçilmemiş, listeye ekle
@@ -83,31 +87,34 @@ class ListVideos extends Component {
     render() {
         const { videos, selectedVideos } = this.state;
         return (
-            <div style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <div class='screen'>
                 <header>
                     <h4>Yüklenmiş Videolar</h4>
                 </header>
-                <div>
-                    {videos.map((video, index) => (
-                        <div key={index}>
-                            <input style={{ margin: '10px', width: '10px', height: 'auto' }}
-                                type="radio"
-                                value={video.skip}
-                                checked={selectedVideos.includes(video.skip)}
-                                onChange={() => this.handleVideoSelect(video.skip)}
-                                title={video.skip}
-                            />
-                            <video controls style={{ margin: '10px' }} width={108} height={192} >
-                                <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
-                                Your browser does not support the video tag.
-                            </video>
+                <div class='row'>
+                    <div>
+                        {videos.map((video, index) => (
+                            <div key={index}>
+                                <input style={{ margin: '10px', width: '10px', height: 'auto' }}
+                                    type="radio"
+                                    value={video.skip}
+                                    checked={selectedVideos.includes(video.skip)}
+                                    onChange={() => this.handleVideoSelect(video.skip)}
+                                    title={video.skip}
+                                />
+                                <video controls style={{ margin: '10px' }} width={108} height={192} >
+                                    <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
+                                    Your browser does not support the video tag.
+                                </video>
 
-                        </div>
-                    ))}
+                            </div>
+                        ))}
+                    </div>
+                    <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
+                        Seçilenleri Sil
+                    </button>
                 </div>
-                <button onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
-                    Seçilenleri Sil
-                </button>
+
             </div>
         );
     }

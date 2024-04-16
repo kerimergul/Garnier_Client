@@ -50,3 +50,9 @@
   height: 100%;
   display: grid;
 }
+
+.radioText{
+  margin-right: 5px;
+  color: black;
+  font-weight: bold;
+}

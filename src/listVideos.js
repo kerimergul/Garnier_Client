@@ -87,16 +87,20 @@ class ListVideos extends Component {
                 <header>
                     <h4>Yüklenmiş Videolar</h4>
                 </header>
+                <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
+                    Seçilenleri Sil
+                </button>
                 <div class='row'>
                     <div>
                         {videos.map((video, index) => (
                             <div key={index}>
+                                <span class='radioText' >Video No : {video.skip}</span>
                                 <input style={{ margin: '10px', width: '10px', height: 'auto' }}
                                     type="radio"
                                     value={video.skip}
                                     checked={selectedVideos.includes(video.skip)}
                                     onClick={() => this.handleVideoSelect(video.skip)}
-                                    title={`Video Numara: ${video.skip}`}                                    
+                                    title={video.skip}
                                 />
                                 <video controls style={{ margin: '10px' }} width={108} height={192} >
                                     <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
@@ -106,9 +110,6 @@ class ListVideos extends Component {
                             </div>
                         ))}
                     </div>
-                    <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
-                        Seçilenleri Sil
-                    </button>
                 </div>
 
             </div>

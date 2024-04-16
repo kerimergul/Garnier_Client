@@ -9,20 +9,20 @@
     background-position-y: center;
     background-size: cover;
     overflow: hidden;
-    vertical-align: bottom;   
+    vertical-align: bottom;
     z-index: 1;
 }
 
 .video {
-    width: 65.6%;
+    width: 44.4%;
     height: 79%;
     position: absolute;
     top: 17.6vh;
-    left: 18.5vw;
+    left: 28.7vw;
     overflow: hidden;
     /* color: red;
     background-color: red; */
-    border-radius: 5vh;
+    border-radius: 5.3vh;
     z-index: 2;
     object-fit: cover;
 }

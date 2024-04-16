@@ -24,6 +24,9 @@ class UploadScreen extends Component {
 
     async uploadToServer(data) {
         alert('Yükleme işlemi başladı.')
+        this.setState({
+            loading: true
+        })
         try {
             blobcnv(data, function (error, video) {
                 if (error) {
@@ -36,13 +39,22 @@ class UploadScreen extends Component {
                     } else {
                         alert('video yüklenirken hata oluştu')
                     }
+                    this.setState({
+                        loading: false
+                    })
                 }).catch((err) => {
                     alert("video yüklenirken hata oluştu");
+                    this.setState({
+                        loading: false
+                    })
                     console.log(err);
                 })
             })
         } catch (err) {
             console.log(err);
+            this.setState({
+                loading: false
+            })
         }
     }
 
@@ -102,7 +114,7 @@ class UploadScreen extends Component {
                             </header>
                             <p>Desteklenen dosya tipleri: MP4</p>
                             <input type="file" accept="video/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />
-                            {/* <button class="btn" onChange={this.handleImageUpload}>Gözat</button> */}
+                            {this.state.loading ? <div class="loader"></div> : <div></div>}
                         </div>
                     </div>
                 </div>

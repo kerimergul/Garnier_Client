@@ -26,7 +26,7 @@ class ListVideos extends Component {
                         if (response?.data?.video?.data) {
                             let videoData = [{
                                 data: response?.data?.video?.data,
-                                skip: skip
+                                skip: skip,
                             }]
                             this.setState(prevState => ({
                                 skip: prevState.skip + 1,
@@ -59,10 +59,13 @@ class ListVideos extends Component {
                 selectedVideos: [...prevState.selectedVideos, videoSkip],
             }));
         } else {
+            console.log(['Seçilmiş, listeden çıkar', videoSkip])
             // Seçilmiş, listeden çıkar
             this.setState(prevState => ({
                 selectedVideos: prevState.selectedVideos.filter(skip => skip !== videoSkip),
             }));
+            console.log(['Çıkarılmış liste', this.state.selectedVideos.map((e) => e.skip)])
+
         }
     }
 
@@ -80,11 +83,14 @@ class ListVideos extends Component {
     render() {
         const { videos, selectedVideos } = this.state;
         return (
-            <div>
+            <div style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <header>
+                    <h4>Yüklenmiş Videolar</h4>
+                </header>
                 <div>
                     {videos.map((video, index) => (
                         <div key={index}>
-                            <input style={{ margin: '10px' }}
+                            <input style={{ margin: '10px', width: '10px', height: 'auto' }}
                                 type="radio"
                                 value={video.skip}
                                 checked={selectedVideos.includes(video.skip)}

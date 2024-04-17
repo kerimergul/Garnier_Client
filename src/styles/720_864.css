@@ -38,3 +38,15 @@
     border-radius: 5vh;
     z-index: 2;
 }
+
+.serial_720_864 {
+    color: black;
+    font-weight: bold;
+    opacity: 0.7;
+    width: 25%;
+    height: 5%;
+    top: 96%;
+    left: 79%;
+    position: absolute;
+    font-size:small;
+}

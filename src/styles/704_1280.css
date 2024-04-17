@@ -38,3 +38,15 @@
     border-radius: 5vh;
     z-index: 2;
 }
+
+.serial_704_1280 {
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    opacity: 0.7;
+    width: 25%;
+    height: 5%;
+    top: 96.2%;
+    left: 77.5%;
+    position: absolute;
+}

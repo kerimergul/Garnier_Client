@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import '../styles/1440_1080.css';
-import '../styles/serial.css';
 
 const style = { backgroundImage: 'url(/backgrounds/1440_1080.png)' };
 
@@ -112,7 +111,7 @@ class _1440_1080 extends Component {
                 <video id="video" loop className="video_1440_1080" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <video id="video2" loop className="video_1440_1080" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <div className="hole"></div>
-                <div id="serial" class="serial">MAT-TR-2400608</div>
+                <div id="serial" class="serial_1440_1080">MAT-TR-2400608</div>
             </div>
         );
     }

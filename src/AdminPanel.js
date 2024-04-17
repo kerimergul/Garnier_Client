@@ -107,7 +107,7 @@ class AdminPanel extends Component {
         let skipNoList = selectedVideos;
         axios.post("https://www.tesvik-sgk.com/signal/api/video/setShowOnlyInStageScreen", { skipNoList })
             .then(response => {
-                alert("Sabit Ekranda Gösterilecek Video No'ları :", selectedVideos);
+                alert("Sabit Ekranda Gösterilecek Video No'ları :", JSON.stringify(selectedVideos));
                 this.setState({ selectedVideos: [] });
             })
             .catch(error => {

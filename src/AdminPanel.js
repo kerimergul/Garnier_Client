@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import './listVideos.css';
 
-class ListVideos extends Component {
+class AdminPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -104,7 +104,8 @@ class ListVideos extends Component {
 
     showSelectedVideo = () => {
         const { selectedVideos } = this.state;
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/setShowOnlyInStageScreen", { selectedVideos })
+        let skipNoList = selectedVideos;
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/setShowOnlyInStageScreen", { skipNoList })
             .then(response => {
                 alert("Sabit Ekranda Gösterilecek Video No'ları :", selectedVideos);
                 this.setState({ selectedVideos: [] });
@@ -159,4 +160,4 @@ class ListVideos extends Component {
     }
 }
 
-export default ListVideos;
+export default AdminPanel;

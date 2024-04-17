@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import LandingScreen from "./screens/landingScreen";
 import LandingScreen1080 from "./1080p/landingScreen1080p";
 import UploadScreen from "./uploadScreen.js";
-import ListVideos from "./listVideos.js";
+import AdminPanel from "./AdminPanel.js";
 
 import _1080_1920_Sabit from "./framed_screens/1080_1920_sabit";
 
@@ -43,8 +43,8 @@ class App extends Component {
       return <UploadScreen></UploadScreen>
     }
 
-    else if (window.location.href.includes("/listVideos")) {
-      return <ListVideos></ListVideos>
+    else if (window.location.href.includes("/adminpanel")) {
+      return <AdminPanel></AdminPanel>
     }
 
     else if (window.location.href.includes("/sabit")) {

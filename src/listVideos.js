@@ -29,12 +29,12 @@ class ListVideos extends Component {
                         if (response?.data?.video?.data) {
                             let videoData = [{
                                 data: response?.data?.video?.data,
-                                skip: response?.data?.count,
+                                skip: response?.data?.video?.no,
                                 id: response?.data?.video?._id,
                             }]
-                            console.log(['skip',skip,'response?.data?.count',response?.data?.count])
+                            console.log(['skip', skip, 'response?.data?.count', response?.data?.count])
                             this.setState(prevState => ({
-                                skip: response?.data?.count,
+                                skip: prevState.skip != response?.data?.video?.no ? response?.data?.count : response?.data?.count + 1,
                                 videos: [...prevState.videos, ...videoData],
                             }), this.fetchVideos);
                         } else {

@@ -32,6 +32,7 @@ class ListVideos extends Component {
                                 skip: response?.data?.video?.no,
                                 id: response?.data?.video?._id,
                             }]
+                            console.log(['skip',skip,'response?.data?.count',response?.data?.count])
                             this.setState(prevState => ({
                                 skip: prevState.skip == response?.data?.count ? response?.data?.count + 1 : response?.data?.count,
                                 videos: [...prevState.videos, ...videoData],
@@ -94,7 +95,6 @@ class ListVideos extends Component {
                     deleteLoading: false,
                     videos: newVideosList
                 }));
-                window.location.reload();
             })
             .catch(error => {
                 alert("Error deleting selected videos:", error);

@@ -39,10 +39,8 @@ class _720_480 extends Component {
             first: false
         })
         // } else {
-        //     alert('Resim yüklenirken hata oluştu')
         // }
         // }).catch((err) => {
-        //     alert("Resim yüklenirken hata oluştu");
         //     console.log(err);
         // })
     }

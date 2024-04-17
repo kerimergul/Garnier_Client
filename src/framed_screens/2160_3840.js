@@ -71,11 +71,9 @@ class _2160_3840 extends Component {
                     }
 
                 } else {
-                    alert('Video yüklenirken hata oluştu')
                 }
             })
             .catch((err) => {
-                alert("Video yüklenirken hata oluştu");
                 console.log(err);
             })
     }
@@ -96,11 +94,9 @@ class _2160_3840 extends Component {
                     }));
                     videoElement.hidden = false;
                 } else {
-                    // alert('Video yüklenirken hata oluştu')
                 }
             })
             .catch((err) => {
-                // alert("Video yüklenirken hata oluştu");
                 console.log(err);
             })
     }

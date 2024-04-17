@@ -8,7 +8,7 @@ class ListVideos extends Component {
         this.state = {
             videos: [],
             selectedVideos: [],
-            skip: 1,
+            skip: 0,
             stop: false,
             deleteLoading: false,
         };
@@ -81,6 +81,7 @@ class ListVideos extends Component {
                 if (e.skip === s) {
                     idList.push(e.id);
                 } else {
+                    console.log()
                     newVideosList.push(e);
                 }
             });
@@ -118,7 +119,7 @@ class ListVideos extends Component {
         return (
             <div class='screen'>
                 <header>
-                    <h4>Yüklenmiş Videolar</h4>
+                    <h4>Yüklenmiş Videolar {videos.length} Adet</h4>
                 </header>
                 <div class='row'>
                     <button class="button-7" onClick={this.showSelectedVideo} disabled={selectedVideos.length === 0}>

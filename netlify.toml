@@ -9,6 +9,11 @@
   status = 200
 
 [[redirects]]
+  from = "/sabit"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/uploadAkmerkez_Akbank"
   to = "/"
   status = 200

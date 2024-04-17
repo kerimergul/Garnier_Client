@@ -5,6 +5,8 @@ import LandingScreen1080 from "./1080p/landingScreen1080p";
 import UploadScreen from "./uploadScreen.js";
 import ListVideos from "./listVideos.js";
 
+import _1080_1920_Sabit from "./framed_screens/1080_1920_sabit";
+
 import _512_786 from "./framed_screens/512_786";
 import _640_1024 from "./framed_screens/640_1024";
 import _704_1152 from "./framed_screens/704_1152";
@@ -43,7 +45,11 @@ class App extends Component {
 
     else if (window.location.href.includes("/listVideos")) {
       return <ListVideos></ListVideos>
-    } 
+    }
+
+    else if (window.location.href.includes("/sabit")) {
+      return <_1080_1920_Sabit></_1080_1920_Sabit>
+    }
 
     else if (window.location.href.includes("/_512_786")) {
       return <_512_786></_512_786>
@@ -96,7 +102,7 @@ class App extends Component {
     else if (window.location.href.includes("/_2160_3840")) {
       return <_2160_3840></_2160_3840>
     }
-   
+
     else {
       return <LandingScreen></LandingScreen>;
     }

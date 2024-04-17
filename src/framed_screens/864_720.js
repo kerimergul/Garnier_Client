@@ -13,6 +13,8 @@ class _864_720 extends Component {
             first: true,
             visibleVideo: 'video2',
             firstLoad: true,
+            width: window.innerWidth,
+            height: window.innerHeight
         };
     }
 
@@ -104,7 +106,10 @@ class _864_720 extends Component {
     render() {
         return (
             <div id="bg" className="bg" style={style}>
-                <video id="video" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true">
+                    <div style={{color:'white'}}>Yükseklik: {this.state.height}</div>
+                    <div style={{color:'white'}}>Genişlik: {this.state.width}</div>
+                </video>
                 <video id="video2" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <div className="hole"></div>
                 <div id="serial" class="serial_864_720">MAT-TR-2400608</div>

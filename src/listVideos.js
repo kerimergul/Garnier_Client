@@ -23,7 +23,7 @@ class ListVideos extends Component {
         if (!this.state.stop) {
             const { skip } = this.state;
             let list = true;
-            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip, list })
+            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideoList", { skip: skip, list })
                 .then(response => {
                     if (response.data.status) {
                         if (response?.data?.video?.data) {
@@ -31,10 +31,10 @@ class ListVideos extends Component {
                                 data: response?.data?.video?.data,
                                 skip: response?.data?.video?.no,
                                 id: response?.data?.video?._id,
+                                active: response?.data?.video?.active
                             }]
-                            console.log(['skip', skip, 'response?.data?.count', response?.data?.count])
                             this.setState(prevState => ({
-                                skip: prevState.skip != response?.data?.video?.no ? response?.data?.count : response?.data?.count + 1,
+                                skip: prevState.skip + 1,
                                 videos: [...prevState.videos, ...videoData],
                             }), this.fetchVideos);
                         } else {
@@ -132,21 +132,24 @@ class ListVideos extends Component {
                 <div class='row'>
                     <div>
                         {videos.map((video, index) => (
-                            <div key={index}>
-                                <span class='radioText' >Video No : {video.skip}</span>
-                                <input style={{ margin: '10px', width: '10px', height: 'auto' }}
-                                    type="radio"
-                                    value={video.skip}
-                                    checked={selectedVideos.includes(video.skip)}
-                                    onClick={() => this.handleVideoSelect(video.skip)}
-                                    title={video.skip}
-                                />
-                                <video controls style={{ margin: '10px' }} width={108} height={192} >
-                                    <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
-                                    Your browser does not support the video tag.
-                                </video>
-
-                            </div>
+                            video.active && (
+                                <div key={index}>
+                                    <span className='radioText'>Video No: {video.skip}</span>
+                                    <input
+                                        style={{ margin: '10px', width: '10px', height: 'auto' }}
+                                        type="radio"
+                                        value={video.skip}
+                                        checked={selectedVideos.includes(video.skip)}
+                                        onClick={() => this.handleVideoSelect(video.skip)}
+                                        title={video.skip}
+                                    />
+                                    <video controls style={{ margin: '10px' }} width={108} height={192}>
+                                        <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <span className='radioText'></span>
+                                </div>
+                            )
                         ))}
                     </div>
                 </div>

@@ -13,6 +13,7 @@ class _1920_1080 extends Component {
             first: true,
             visibleVideo: 'video2',
             firstLoad: true,
+            loading: false
         };
     }
 
@@ -48,6 +49,8 @@ class _1920_1080 extends Component {
     loadVideo = () => {
         console.log('loadVideo')
         const { skip, first } = this.state;
+        if (!this.state.loading) {
+            this.setState({ loading: true });
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {
@@ -59,28 +62,35 @@ class _1920_1080 extends Component {
                             skip: res?.data?.count,
                             first: false,
                             visibleVideo: 'video',
-                            firstLoad: false
+                            firstLoad: false,
+                            loading: false
                         }));
                     } else {
                         this.setState(prevState => ({
                             skip: res?.data?.count,
                             first: false,
                             visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
-                            firstLoad: false
+                            firstLoad: false,
+                            loading: false
                         }));
                     }
 
                 } else {
+                    this.setState({ loading: false });
                 }
             })
             .catch((err) => {
                 console.log(err);
+                this.setState({ loading: false });
             })
+        }
     }
 
     firstLoadVideo = () => {
         console.log('firstLoadVideo')
         let skip = 0;
+        if (!this.state.loading) {
+            this.setState({ loading: true });
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {
@@ -90,15 +100,19 @@ class _1920_1080 extends Component {
                     this.setState(() => ({
                         // skip: res?.data?.count,
                         first: false,
+                        loading: false
                         // firstLoad: true
                     }));
                     videoElement.hidden = false;
                 } else {
+                    this.setState({ loading: false });
                 }
             })
             .catch((err) => {
                 console.log(err);
+                this.setState({ loading: false });
             })
+        }
     }
 
     render() {

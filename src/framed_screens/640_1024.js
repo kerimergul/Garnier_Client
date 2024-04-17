@@ -14,6 +14,7 @@ class _640_1024 extends Component {
             first: true,
             visibleVideo: 'video2',
             firstLoad: true,
+            loading: false,
         };
     }
 
@@ -48,40 +49,49 @@ class _640_1024 extends Component {
 
     loadVideo = () => {
         console.log('loadVideo')
-        const { skip, first } = this.state;
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
-            .then((res) => {
-                if (res?.data?.status === true) {
-                    const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
-                    videoElement.src = res?.data?.video?.data;
-                    videoElement.load();
-                    if (res?.data?.count == 1) {
-                        this.setState(() => ({
-                            skip: res?.data?.count,
-                            first: false,
-                            visibleVideo: 'video',
-                            firstLoad: false
-                        }));
-                    } else {
-                        this.setState(prevState => ({
-                            skip: res?.data?.count,
-                            first: false,
-                            visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
-                            firstLoad: false
-                        }));
-                    }
+        const { skip, first, loading } = this.state;
+        if (!this.state.loading) {
+            this.setState({ loading: true });
+            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
+                .then((res) => {
+                    if (res?.data?.status === true) {
+                        const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
+                        videoElement.src = res?.data?.video?.data;
+                        videoElement.load();
+                        if (res?.data?.count == 1) {
+                            this.setState(() => ({
+                                skip: res?.data?.count,
+                                first: false,
+                                visibleVideo: 'video',
+                                firstLoad: false,
+                                loading: false
+                            }));
+                        } else {
+                            this.setState(prevState => ({
+                                skip: res?.data?.count,
+                                first: false,
+                                visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
+                                firstLoad: false,
+                                loading: false
+                            }));
+                        }
 
-                } else {
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+                    } else {
+                        this.setState({ loading: false });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    this.setState({ loading: false });
+                })
+        }
     }
 
     firstLoadVideo = () => {
         console.log('firstLoadVideo')
         let skip = 0;
+        if (!this.state.loading) {
+            this.setState({ loading: true });
         axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
             .then((res) => {
                 if (res?.data?.status === true) {
@@ -91,15 +101,19 @@ class _640_1024 extends Component {
                     this.setState(() => ({
                         // skip: res?.data?.count,
                         first: false,
+                        loading: false
                         // firstLoad: true
                     }));
                     videoElement.hidden = false;
                 } else {
+                    this.setState({ loading: false });
                 }
             })
             .catch((err) => {
                 console.log(err);
+                this.setState({ loading: false });
             })
+        }
     }
 
     render() {

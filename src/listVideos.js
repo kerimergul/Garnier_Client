@@ -83,7 +83,8 @@ class ListVideos extends Component {
             });
         });
         this.setState({ deleteLoading: true });
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/setPassive", { idList })
+        let skipList = selectedVideos;
+        axios.post("https://www.tesvik-sgk.com/signal/api/video/setPassive", { idList, skipList })
             .then(response => {
                 console.log(['setPassive response', response?.data])
                 this.setState({ deleteLoading: false });

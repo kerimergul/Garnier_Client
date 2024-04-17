@@ -15,6 +15,7 @@ import _1152_704_Gomulu from "./framed_screens/1152_704_gomulu";
 import _1080_1920_Gomulu from "./framed_screens/1080_1920_gomulu";
 import _1024_640_Gomulu from "./framed_screens/1024_640_gomulu";
 import _864_720_Gomulu from "./framed_screens/864_720_gomulu";
+import _1920_1080_Gomulu from "./framed_screens/1920_1080_gomulu";
 
 
 import _512_786 from "./framed_screens/512_786";
@@ -84,6 +85,9 @@ class App extends Component {
     }
     else if (window.location.href.includes("/_864_720_gomulu")) {
       return <_864_720_Gomulu></_864_720_Gomulu>
+    }
+    else if (window.location.href.includes("/_1920_1080_gomulu")) {
+      return <_1920_1080_Gomulu></_1920_1080_Gomulu>
     }
 
     else if (window.location.href.includes("/_512_786")) {

@@ -52,6 +52,11 @@
   from = "/_864_720_gomulu"
   to = "/"
   status = 200
+  
+[[redirects]]
+  from = "/_1920_1080_gomulu"
+  to = "/"
+  status = 200
 
 [[redirects]]
   from = "/uploadAkmerkez_Akbank"

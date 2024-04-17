@@ -10,7 +10,7 @@ class _1080_1920_Sabit extends Component {
         super(props);
         this.state = {
             video: "",
-            skip: 1,
+            skip: 0,
             first: true,
             visibleVideo: 'video2',
             firstLoad: true,

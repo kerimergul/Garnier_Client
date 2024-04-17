@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import '../styles/1024_640.css';
+import '../styles/1280_704.css';
 
-const style = { backgroundImage: 'url(/backgrounds/1024_640.png)' };
+const style = { backgroundImage: 'url(/backgrounds/1280_704.png)' };
 
-class _1024_640_Gomulu extends Component {
+class _1280_704_Gomulu extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -45,12 +45,12 @@ class _1024_640_Gomulu extends Component {
     render() {
         return (
             <div id="bg" className="bg" style={style}>
-                <video id="video" loop className="video_1024_640" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video" loop className="video_1280_704" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <div className="hole"></div>
-                <div id="serial" class="serial_1024_640">MAT-TR-2400608</div>
+                <div id="serial" class="serial_1280_704">MAT-TR-2400608</div>
             </div>
         );
     }
 }
 
-export default _1024_640_Gomulu;
+export default _1280_704_Gomulu;

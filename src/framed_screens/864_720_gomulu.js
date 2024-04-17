@@ -1,135 +1,56 @@
 import React, { Component } from "react";
-import axios from "axios";
 import '../styles/864_720.css';
 
 const style = { backgroundImage: 'url(/backgrounds/864_720.png)' };
 
-class _864_720 extends Component {
+class _864_720_Gomulu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            video: "",
-            skip: 1,
-            first: true,
-            visibleVideo: 'video2',
-            firstLoad: true,
-            width: window.innerWidth,
-            height: window.innerHeight,
-            loading: false
+            currentVideoIndex: 0,
+            videos: [
+                "/videos/0.mp4",
+                "/videos/1.mp4",
+                "/videos/2.mp4",
+                "/videos/3.mp4",
+                "/videos/4.mp4",
+                "/videos/5.mp4",
+                "/videos/6.mp4",
+                "/videos/7.mp4",
+                "/videos/8.mp4",
+                "/videos/9.mp4",
+            ],
         };
     }
 
     componentDidMount() {
-        console.log('componentDidMount')
-        this.firstLoadVideo();
+        this.loadVideo();
         this.interval = setInterval(this.loadVideo, 15000);
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount')
         clearInterval(this.interval);
     }
 
-    componentDidUpdate() {
-        console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
-        let visibleVideo = this.state.visibleVideo;
-        if (!this.state.firstLoad) {
-            document.getElementById('video').hidden = visibleVideo !== 'video';
-            document.getElementById('video2').hidden = visibleVideo !== 'video2';
-        }
-    }
-
-    setNextVisibleVideo = (visibleVideo) => {
-        return visibleVideo === 'video' ? 'video2' : 'video';
-    }
-
-    getVisibleElement = (visibleVideo, first) => {
-        let newVisibleElement = visibleVideo;
-        return document.getElementById(newVisibleElement);
-    }
-
     loadVideo = () => {
-        console.log('loadVideo')
-        const { skip, first } = this.state;
-        if (!this.state.loading) {
-            this.setState({ loading: true });
-            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
-                .then((res) => {
-                    if (res?.data?.status === true) {
-                        const videoElement = this.getVisibleElement(this.state.visibleVideo, this.state.first)
-                        videoElement.src = res?.data?.video?.data;
-                        videoElement.load();
-                        if (res?.data?.count == 1) {
-                            this.setState(() => ({
-                                skip: res?.data?.count,
-                                first: false,
-                                visibleVideo: 'video',
-                                firstLoad: false,
-                                loading: false
-                            }));
-                        } else {
-                            this.setState(prevState => ({
-                                skip: res?.data?.count,
-                                first: false,
-                                visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
-                                firstLoad: false,
-                                loading: false
-                            }));
-                        }
-
-                    } else {
-                        this.setState({ loading: false });
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                    this.setState({ loading: false });
-                })
-        }
-    }
-
-    firstLoadVideo = () => {
-        console.log('firstLoadVideo')
-        let skip = 0;
-        if (!this.state.loading) {
-            this.setState({ loading: true });
-            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
-                .then((res) => {
-                    if (res?.data?.status === true) {
-                        const videoElement = document.getElementById('video');
-                        videoElement.src = res?.data?.video?.data;
-                        videoElement.load();
-                        this.setState(() => ({
-                            // skip: res?.data?.count,
-                            first: false,
-                            loading: false
-                            // firstLoad: true
-                        }));
-                        videoElement.hidden = false;
-                    } else {
-                        this.setState({ loading: false });
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                    this.setState({ loading: false });
-                })
-        }
+        const { currentVideoIndex, videos } = this.state;
+        const videoElement = document.getElementById('video');
+        videoElement.src = videos[currentVideoIndex];
+        videoElement.load();
+        videoElement.play();
+        const nextIndex = (currentVideoIndex + 1) % videos.length;
+        this.setState({ currentVideoIndex: nextIndex });
     }
 
     render() {
         return (
             <div id="bg" className="bg" style={style}>
-                <video id="video" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true">
-                </video>
-                <video id="video2" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
+                <video id="video" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <div className="hole"></div>
-                <div style={{ color: 'white', zIndex: '5', position: 'absolute', top: '40%', left: '40%', width: '25%', fontSize: 'small' }}>Yükseklik: {this.state.height}</div>
-                <div style={{ color: 'white', zIndex: '5', position: 'absolute', top: '50%', left: '50%', width: '25%', fontSize: 'small' }}>Genişlik: {this.state.width}</div>
                 <div id="serial" class="serial_864_720">MAT-TR-2400608</div>
             </div>
         );
     }
 }
 
-export default _864_720;
+export default _864_720_Gomulu;

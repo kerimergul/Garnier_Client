@@ -8,6 +8,14 @@ import AdminPanel from "./AdminPanel.js";
 import _1080_1920_Sabit from "./framed_screens/1080_1920_sabit";
 
 import _512_786_Gomulu from "./framed_screens/512_786_gomulu";
+import _1280_704_Gomulu from "./framed_screens/1280_704_gomulu";
+import _1920_1152_Gomulu from "./framed_screens/1920_1152_gomulu";
+import _1548_946_Gomulu from "./framed_screens/1548_946_gomulu";
+import _1152_704_Gomulu from "./framed_screens/1152_704_gomulu";
+import _1080_1920_Gomulu from "./framed_screens/1080_1920_gomulu";
+import _1024_640_Gomulu from "./framed_screens/1024_640_gomulu";
+import _864_720_Gomulu from "./framed_screens/864_720_gomulu";
+
 
 import _512_786 from "./framed_screens/512_786";
 import _640_1024 from "./framed_screens/640_1024";
@@ -55,6 +63,27 @@ class App extends Component {
 
     else if (window.location.href.includes("/_512_786_gomulu")) {
       return <_512_786_Gomulu></_512_786_Gomulu>
+    }
+    else if (window.location.href.includes("/_1280_704_gomulu")) {
+      return <_1280_704_Gomulu></_1280_704_Gomulu>
+    }
+    else if (window.location.href.includes("/_1920_1152_gomulu")) {
+      return <_1920_1152_Gomulu></_1920_1152_Gomulu>
+    }
+    else if (window.location.href.includes("/_1548_946_gomulu")) {
+      return <_1548_946_Gomulu></_1548_946_Gomulu>
+    }
+    else if (window.location.href.includes("/_1152_704_gomulu")) {
+      return <_1152_704_Gomulu></_1152_704_Gomulu>
+    }
+    else if (window.location.href.includes("/_1080_1920_gomulu")) {
+      return <_1080_1920_Gomulu></_1080_1920_Gomulu>
+    }
+    else if (window.location.href.includes("/_1024_640_gomulu")) {
+      return <_1024_640_Gomulu></_1024_640_Gomulu>
+    }
+    else if (window.location.href.includes("/_864_720_gomulu")) {
+      return <_864_720_Gomulu></_864_720_Gomulu>
     }
 
     else if (window.location.href.includes("/_512_786")) {

@@ -19,6 +19,41 @@
   status = 200
 
 [[redirects]]
+  from = "/_1280_704_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_1920_1152_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_1548_946_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_1152_704_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_1080_1920_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_1024_640_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/_864_720_gomulu"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/uploadAkmerkez_Akbank"
   to = "/"
   status = 200

@@ -8,7 +8,7 @@ class ListVideos extends Component {
         this.state = {
             videos: [],
             selectedVideos: [],
-            skip: 0,
+            skip: 1,
             stop: false,
             deleteLoading: false,
         };

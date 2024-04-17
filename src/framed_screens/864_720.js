@@ -107,11 +107,11 @@ class _864_720 extends Component {
         return (
             <div id="bg" className="bg" style={style}>
                 <video id="video" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true">
-                    <div style={{ color: 'white', zIndex: '5' }}>Yükseklik: {this.state.height}</div>
-                    <div style={{ color: 'white', zIndex: '5' }}>Genişlik: {this.state.width}</div>
                 </video>
                 <video id="video2" loop className="video_864_720" height="1516.8" width="708.48" autoPlay="true" muted="true"></video>
                 <div className="hole"></div>
+                <div style={{ color: 'white', zIndex: '5',position:'absolute',top:'50%',left:'50%',width:'25%',fontSize:'small' }}>Yükseklik: {this.state.height}</div>
+                <div style={{ color: 'white', zIndex: '5',position:'absolute',top:'50%',left:'50%',width:'25%',fontSize:'small' }}>Genişlik: {this.state.width}</div>
                 <div id="serial" class="serial_864_720">MAT-TR-2400608</div>
             </div>
         );

@@ -96,11 +96,11 @@ class _1920_1152 extends Component {
                     }));
                     videoElement.hidden = false;
                 } else {
-                    alert('Video yüklenirken hata oluştu')
+                    // alert('Video yüklenirken hata oluştu')
                 }
             })
             .catch((err) => {
-                alert("Video yüklenirken hata oluştu");
+                // alert("Video yüklenirken hata oluştu");
                 console.log(err);
             })
     }

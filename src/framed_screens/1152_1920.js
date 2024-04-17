@@ -71,11 +71,11 @@ class _1152_1920 extends Component {
                     }
 
                 } else {
-                    alert('Video yüklenirken hata oluştu')
+                    // alert('Video yüklenirken hata oluştu')
                 }
             })
             .catch((err) => {
-                alert("Video yüklenirken hata oluştu");
+                // alert("Video yüklenirken hata oluştu");
                 console.log(err);
             })
     }

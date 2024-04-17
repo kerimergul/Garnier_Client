@@ -72,11 +72,11 @@ class _1080_1920_Sabit extends Component {
                     }
 
                 } else {
-                    alert('Video yüklenirken hata oluştu')
+                    // alert('Video yüklenirken hata oluştu')
                 }
             })
             .catch((err) => {
-                alert("Video yüklenirken hata oluştu");
+                // alert("Video yüklenirken hata oluştu");
                 console.log(err);
             })
     }

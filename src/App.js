@@ -7,6 +7,8 @@ import AdminPanel from "./AdminPanel.js";
 
 import _1080_1920_Sabit from "./framed_screens/1080_1920_sabit";
 
+import _512_786_Gomulu from "./framed_screens/512_786_gomulu";
+
 import _512_786 from "./framed_screens/512_786";
 import _640_1024 from "./framed_screens/640_1024";
 import _704_1152 from "./framed_screens/704_1152";
@@ -49,6 +51,10 @@ class App extends Component {
 
     else if (window.location.href.includes("/sabit")) {
       return <_1080_1920_Sabit></_1080_1920_Sabit>
+    }
+
+    else if (window.location.href.includes("/_512_786_gomulu")) {
+      return <_512_786_Gomulu></_512_786_Gomulu>
     }
 
     else if (window.location.href.includes("/_512_786")) {

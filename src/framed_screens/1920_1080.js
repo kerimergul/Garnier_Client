@@ -75,7 +75,7 @@ class _1920_1080 extends Component {
                 }
             })
             .catch((err) => {
-                alert("Video yüklenirken hata oluştu");
+                // alert("Video yüklenirken hata oluştu");
                 console.log(err);
             })
     }

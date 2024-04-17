@@ -119,7 +119,7 @@ class ListVideos extends Component {
         return (
             <div class='screen'>
                 <header>
-                    <h4>Yüklenmiş Videolar {videos.length} Adet</h4>
+                    <h4>Yüklenmiş Videolar {videos.filter((e) => e.active).length} Adet</h4>
                 </header>
                 <div class='row'>
                     <button class="button-7" onClick={this.showSelectedVideo} disabled={selectedVideos.length === 0}>

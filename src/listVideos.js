@@ -33,7 +33,7 @@ class ListVideos extends Component {
                                 id: response?.data?.video?._id,
                             }]
                             this.setState(prevState => ({
-                                skip: prevState.skip == response?.data?.skip ? response?.data?.skip + 1 : response?.data?.skip,
+                                skip: prevState.skip == response?.data?.count ? response?.data?.count + 1 : response?.data?.count,
                                 videos: [...prevState.videos, ...videoData],
                             }), this.fetchVideos);
                         } else {

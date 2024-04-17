@@ -86,11 +86,11 @@ class ListVideos extends Component {
         let skipList = selectedVideos;
         axios.post("https://www.tesvik-sgk.com/signal/api/video/setPassive", { idList, skipList })
             .then(response => {
-                console.log(['setPassive response', response?.data])
                 this.setState({ deleteLoading: false });
+                window.location.reload();
             })
             .catch(error => {
-                console.error("Error deleting selected videos:", error);
+                alert("Error deleting selected videos:", error);
                 this.setState({ deleteLoading: false });
             });
     }
@@ -99,6 +99,7 @@ class ListVideos extends Component {
         const { selectedVideos } = this.state;
         axios.post("https://www.tesvik-sgk.com/signal/api/video/setShowOnlyInStageScreen", { selectedVideos })
             .then(response => {
+                alert("Sabit Ekranda Gösterilecek Video No'ları :", selectedVideos);
                 this.setState({ selectedVideos: [] });
             })
             .catch(error => {

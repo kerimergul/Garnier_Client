@@ -14,7 +14,8 @@ class _1080_1920 extends Component {
             first: true,
             visibleVideo: 'video2',
             firstLoad: true,
-            loading: false
+            loading: false,
+            updateScreen: true,
         };
     }
 
@@ -32,7 +33,7 @@ class _1080_1920 extends Component {
     componentDidUpdate() {
         console.log(['this.state.skip', this.state.skip, 'this.state.visibleVideo', this.state.visibleVideo])
         let visibleVideo = this.state.visibleVideo;
-        if (!this.state.firstLoad) {
+        if (!this.state.firstLoad && this.state.updateScreen) {
             document.getElementById('video').hidden = visibleVideo !== 'video';
             document.getElementById('video2').hidden = visibleVideo !== 'video2';
         }
@@ -51,7 +52,7 @@ class _1080_1920 extends Component {
         console.log('loadVideo')
         const { skip, first } = this.state;
         if (!this.state.loading) {
-            this.setState({ loading: true });
+            this.setState({ loading: true, updateScreen: false });
             axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
                 .then((res) => {
                     if (res?.data?.status === true) {
@@ -64,7 +65,8 @@ class _1080_1920 extends Component {
                                 first: false,
                                 visibleVideo: 'video',
                                 firstLoad: false,
-                                loading: false
+                                loading: false,
+                                updateScreen: true
                             }));
                         } else {
                             this.setState(prevState => ({
@@ -72,17 +74,18 @@ class _1080_1920 extends Component {
                                 first: false,
                                 visibleVideo: this.setNextVisibleVideo(prevState.visibleVideo),
                                 firstLoad: false,
-                                loading: false
+                                loading: false,
+                                updateScreen: true
                             }));
                         }
 
                     } else {
-                        this.setState({ loading: false });
+                        this.setState({ loading: false, updateScreen: true });
                     }
                 })
                 .catch((err) => {
                     console.log(err);
-                    this.setState({ loading: false });
+                    this.setState({ loading: false, updateScreen: true });
                 })
         }
     }
@@ -91,7 +94,7 @@ class _1080_1920 extends Component {
         console.log('firstLoadVideo')
         let skip = 0;
         if (!this.state.loading) {
-            this.setState({ loading: true });
+            this.setState({ loading: true, updateScreen: false });
             axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip })
                 .then((res) => {
                     if (res?.data?.status === true) {
@@ -101,17 +104,18 @@ class _1080_1920 extends Component {
                         this.setState(() => ({
                             // skip: res?.data?.count,
                             first: false,
-                            loading: false
+                            loading: false,
+                            updateScreen: true
                             // firstLoad: true
                         }));
                         videoElement.hidden = false;
                     } else {
-                        this.setState({ loading: false });
+                        this.setState({ loading: false, updateScreen: true });
                     }
                 })
                 .catch((err) => {
                     console.log(err);
-                    this.setState({ loading: false });
+                    this.setState({ loading: false, updateScreen: true });
                 })
         }
     }

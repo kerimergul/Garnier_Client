@@ -19,6 +19,16 @@ class _1152_704_Gomulu extends Component {
                 "/videos/7.mp4",
                 "/videos/8.mp4",
                 "/videos/9.mp4",
+                "/videos/10.mp4",
+                "/videos/11.mp4",
+                "/videos/12.mp4",
+                "/videos/13.mp4",
+                "/videos/14.mp4",
+                "/videos/15.mp4",
+                "/videos/16.mp4",
+                "/videos/17.mp4",
+                "/videos/18.mp4",
+                "/videos/19.mp4",
             ],
         };
     }

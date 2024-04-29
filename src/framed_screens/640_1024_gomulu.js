@@ -46,8 +46,13 @@ class _640_1024_Gomulu extends Component {
         const { currentVideoIndex, videos } = this.state;
         const videoElement = document.getElementById('video');
         videoElement.src = videos[currentVideoIndex];
+        videoElement.crossOrigin = 'anonymous';
         videoElement.load();
-        videoElement.play();
+        videoElement.oncanplaythrough = () => {
+            // Video yüklendiğinde oynatma işlemi başlatılıyor
+            videoElement.play();
+        };
+       
         const nextIndex = (currentVideoIndex + 1) % videos.length;
         this.setState({ currentVideoIndex: nextIndex });
     }

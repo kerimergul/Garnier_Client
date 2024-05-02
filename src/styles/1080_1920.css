@@ -29,17 +29,18 @@
 }
 
 .image_1080_1920{
-    width: 50%;
-    height: 50%;
+    width: auto;
+    height: 1200px;
+    max-width: 720px;
     position: absolute;
-    top: 5vh;
-    left: 5vw;
+    top:0;
+    left: 0;
     overflow: hidden;
     /* color: red;
     background-color: red; */
     /* border-radius: 5vh; */
     z-index: 2;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .video_1080_1920 {

@@ -3,7 +3,7 @@ import axios from "axios";
 import '../styles/1080_1920.css';
 import '../styles/serial.css';
 
-const style = { backgroundImage: 'url(/backgrounds/bottom_layer.jpg)' };
+const style = { backgroundImage: 'url(/backgrounds/bottom_layer.png)' };
 const styleTop = { backgroundImage: 'url(/backgrounds/top_layer.png)' };
 
 class _1080_1920_Garnier extends Component {

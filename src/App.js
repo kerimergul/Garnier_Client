@@ -29,10 +29,6 @@ class App extends Component {
       return <AdminPanel></AdminPanel>
     }
 
-    else if (window.location.href.includes("/sabit")) {
-      return <_1080_1920_Sabit></_1080_1920_Sabit>
-    }
-
     else if (window.location.href.includes("/_1080_1920")) {
       return <_1080_1920_Garnier></_1080_1920_Garnier>
     }

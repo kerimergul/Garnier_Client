@@ -1,0 +1,69 @@
+VİDEO YÜKLEME EKRANI
+
+Video Yükleme Ekranı - https://brandedact.online/upload
+
+ADMİN PANELİ
+
+Admin Paneli - https://brandedact.online/adminpanel
+
+SABİT EKRAN
+
+Sabit Ekran Dikey 1080x1920 - https://brandedact.online/sabit
+
+MECRA EKRANLARI
+
+512x786 Dikey Ekran - https://brandedact.online/_512_786
+640x1024 Dikey Ekran - https://brandedact.online/_640_1024
+704x1152 Dikey Ekran - https://brandedact.online/_704_1152
+704x1280 Dikey Ekran - https://brandedact.online/_704_1280
+720x864 Dikey Ekran - https://brandedact.online/_720_864
+864x720 Yatay Ekran - https://brandedact.online/_864_720
+946x1548 Dikey Ekran - https://brandedact.online/_946_1548
+1024x640 Yatay Ekran - https://brandedact.online/_1024_640
+1080x1920 Dikey Ekran - https://brandedact.online/_1080_1920
+1152x704 Yatay Ekran - https://brandedact.online/_1152_704
+1152x1920 Dikey Ekran - https://brandedact.online/_1152_1920
+1280x704 Yatay Ekran - https://brandedact.online/_1280_704
+1440x1080 Yatay Ekran - https://brandedact.online/_1440_1080
+1548x946 Yatay Ekran - https://brandedact.online/_1548_946
+1920x1080 Yatay Ekran - https://brandedact.online/_1920_1080
+1920x1152 Yatay Ekran - https://brandedact.online/_1920_1152
+2160x3840 Dikey Ekran - https://brandedact.online/_2160_3840
+
+GÖMÜLÜ KANYON EKRANLAR
+
+512x786 Dikey Ekran - https://brandedact.online/_512_786_gomulu
+1280x704 Yatay Ekran - https://brandedact.online/_1280_704_gomulu
+1920x1152 Yatay Ekran - https://brandedact.online/_1920_1152_gomulu
+1548x946 Yatay Ekran - https://brandedact.online/_1548_946_gomulu
+1152x704 Yatay Ekran - https://brandedact.online/_1152_704_gomulu
+1080x1920 Dikey Ekran - https://brandedact.online/_1080_1920_gomulu
+1024x640 Yatay Ekran - https://brandedact.online/_1024_640_gomulu
+864x720 Yatay Ekran - https://brandedact.online/_864_720_gomulu
+1920x1080 Yatay Ekran - https://brandedact.online/_1920_1080_gomulu
+
+
+
+-- TODO
+
+-Yükleme Ekranına loading animasyonu / Yapıldı
+-Bütün videoların geldiği toplu seçerek silebileceği bir ekran / Yapıldı
+-Server sadece son 10 videoyu gönderecek şekilde ayarlanacak / Yapıldı
+-Seri kod metni ekranlarda yerleşimi kontrol edilecek/ Yapıldı
+-Silinmiş videoları işaretleyerek pas geçmesi sağlanacak böylece cache sistemindeki sayı düzeni bozulmaz./ Yapıldı
+-Sabit ekranda görüntülenecek videoyu seçme ve sabit ekrana yansıması / Yapıldı
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

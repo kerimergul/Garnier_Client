@@ -28,22 +28,22 @@ class UploadScreen extends Component {
             loading: true
         }));
         try {
-            blobcnv(data, (error, video) => {
+            blobcnv(data, (error, image) => {
                 if (error) {
                     throw error;
                 }
-                axios.post("https://www.tesvik-sgk.com/signal/api/video/upload", { video }).then((res) => {
+                axios.post("https://www.tesvik-sgk.com/signal/api/image/upload", { image }).then((res) => {
                     console.log(res);
                     if (res?.data?.status === true) {
-                        alert("video başarıyla yüklendi");
+                        alert("image başarıyla yüklendi");
                     } else {
-                        alert('video yüklenirken hata oluştu')
+                        alert('image yüklenirken hata oluştu')
                     }
                     this.setState(() => ({
                         loading: false
                     }));
                 }).catch((err) => {
-                    alert("video yüklenirken hata oluştu");
+                    alert("image yüklenirken hata oluştu");
                     this.setState(() => ({
                         loading: false
                     }));
@@ -66,15 +66,25 @@ class UploadScreen extends Component {
 
     async handleImageUpload(event) {
         console.log('trigger handle image upload');
-        const videoFile = event.target.files[0];
-        console.log('originalFile instanceof Blob', videoFile instanceof Blob); // true
-        console.log(`originalFile size ${videoFile.size / 1024 / 1024} MB`);
+        const imageFile = event.target.files[0];
+        console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+        console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
 
+        const options = {
+            maxSizeMB: 1,
+            maxWidthOrHeight: 1920,
+            useWebWorker: true,
+        }
         try {
-            this.uploadToServer(videoFile);
+            const compressedFile = await imageCompression(imageFile, options);
+            console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+            console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+            console.log(compressedFile)
+
+            this.uploadToServer(compressedFile);
 
             this.setState({
-                data: videoFile
+                data: compressedFile
             })
 
 
@@ -107,13 +117,13 @@ class UploadScreen extends Component {
             <div class="col">
                 <div class="container">
                     <div class="card">
-                        <h3>Pharmaton Video Yükle</h3>
+                        <h3>Garnier Resim Yükle</h3>
                         <div class="drop_box">
                             <header>
                                 <h4>Dosyayı seçiniz</h4>
                             </header>
-                            <p>Desteklenen dosya tipleri: MP4</p>
-                            {this.state.loading ? <div class="loader"></div> : <input type="file" accept="video/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />}
+                            <p>Desteklenen dosya tipleri: PNG,JPG</p>
+                            {this.state.loading ? <div class="loader"></div> : <input type="file" accept="image/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />}
                         </div>
                     </div>
                 </div>

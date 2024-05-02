@@ -122,7 +122,7 @@ class UploadScreen extends Component {
                             <header>
                                 <h4>Dosyayı seçiniz</h4>
                             </header>
-                            <p>Desteklenen dosya tipleri: PNG,JPG</p>
+                            <p>Desteklenen dosya tipleri: PNG, JPG</p>
                             {this.state.loading ? <div class="loader"></div> : <input type="file" accept="image/*" id="fileID" class="input-image" onChange={(e) => this.handleImageUpload(e)} />}
                         </div>
                     </div>

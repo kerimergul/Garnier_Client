@@ -125,8 +125,8 @@ class _1080_1920_Garnier extends Component {
     render() {
         return (
             <div id="bg" className="bg" style={style}>
-                <image id="image" className="image_1080_1920" height="1516.8" width="708.48"></image>
-                <image id="image2" className="image_1080_1920" height="1516.8" width="708.48"></image>
+                <img id="image" className="image_1080_1920" height="1516.8" width="708.48"></img>
+                <img id="image2" className="image_1080_1920" height="1516.8" width="708.48"></img>
                 <div className="hole"></div>
                 {/* <div id="serial" class="serial">MAT-TR-2400608</div> */}
             </div>

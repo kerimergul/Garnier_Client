@@ -30,8 +30,8 @@
 
 .image_1080_1920{
     width: auto;
-    height: 1200px;
-    max-width: 720px;
+    height: 62.5%;
+    max-width: 66.67%;
     position: absolute;
     top:0;
     left: 0;

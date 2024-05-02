@@ -58,25 +58,26 @@ class _1080_1920_Garnier extends Component {
                     if (res?.data?.status === true) {
                         const imageElement = this.getVisibleElement(this.state.visibleimage, this.state.first)
                         imageElement.src = res?.data?.image?.data;
-                        imageElement.load();
-                        if (res?.data?.count == 1) {
-                            this.setState(() => ({
-                                skip: res?.data?.count,
-                                first: false,
-                                visibleimage: 'image',
-                                firstLoad: false,
-                                loading: false,
-                                updateScreen: true
-                            }));
-                        } else {
-                            this.setState(prevState => ({
-                                skip: res?.data?.count,
-                                first: false,
-                                visibleimage: this.setNextVisibleimage(prevState.visibleimage),
-                                firstLoad: false,
-                                loading: false,
-                                updateScreen: true
-                            }));
+                        imageElement.onload = function () {
+                            if (res?.data?.count == 1) {
+                                this.setState(() => ({
+                                    skip: res?.data?.count,
+                                    first: false,
+                                    visibleimage: 'image',
+                                    firstLoad: false,
+                                    loading: false,
+                                    updateScreen: true
+                                }));
+                            } else {
+                                this.setState(prevState => ({
+                                    skip: res?.data?.count,
+                                    first: false,
+                                    visibleimage: this.setNextVisibleimage(prevState.visibleimage),
+                                    firstLoad: false,
+                                    loading: false,
+                                    updateScreen: true
+                                }));
+                            }
                         }
 
                     } else {
@@ -100,15 +101,16 @@ class _1080_1920_Garnier extends Component {
                     if (res?.data?.status === true) {
                         const imageElement = document.getElementById('image');
                         imageElement.src = res?.data?.image?.data;
-                        imageElement.load();
-                        this.setState(() => ({
-                            // skip: res?.data?.count,
-                            first: false,
-                            loading: false,
-                            updateScreen: true
-                            // firstLoad: true
-                        }));
-                        imageElement.hidden = false;
+                        imageElement.onload = function () {
+                            this.setState(() => ({
+                                // skip: res?.data?.count,
+                                first: false,
+                                loading: false,
+                                updateScreen: true
+                                // firstLoad: true
+                            }));
+                            imageElement.hidden = false;
+                        }
                     } else {
                         this.setState({ loading: false, updateScreen: true });
                     }

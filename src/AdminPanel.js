@@ -144,8 +144,7 @@ class AdminPanel extends Component {
                                         onClick={() => this.handleimageSelect(image.skip)}
                                         title={image.skip}
                                     />
-                                    <img controls style={{ margin: '10px' }} width={108} height={192}>
-                                        <source src={`${image.data}`} type="image/png" width={108} height={192} />
+                                    <img controls style={{ margin: '10px' }} width={108} height={192} src={`${image.data}`}>                                       
                                         Your browser does not support the image tag.
                                     </img>
                                     <span className='radioText'></span>

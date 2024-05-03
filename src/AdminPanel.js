@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './listimages.css';
+import './listVideos.css';
 
 class AdminPanel extends Component {
     constructor(props) {

@@ -20,13 +20,17 @@ class AdminPanel extends Component {
         this.fetchimages();
     }
 
-    
+
     downloadAll = () => {
-        const { images } = this.state;      
-        images.forEach((img)=>{
-            saveAs(img?.data, img?.no);
+        const { images } = this.state;
+        images.forEach((img) => {
+            try {
+                saveAs(img?.data, img?.no);
+            } catch (error) {
+                console.error(error);
+            }
         })
-     
+
     }
 
 

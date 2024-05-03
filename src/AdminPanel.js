@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './listVideos.css';
+import saveAs from 'save-as';
+
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -16,6 +18,15 @@ class AdminPanel extends Component {
 
     componentDidMount() {
         this.fetchimages();
+    }
+
+    
+    downloadAll = () => {
+        const { images } = this.state;      
+        images.forEach((img)=>{
+            saveAs(img?.data, img?.no);
+        })
+     
     }
 
 
@@ -116,6 +127,7 @@ class AdminPanel extends Component {
             });
     }
 
+
     render() {
         const { images, selectedimages } = this.state;
         return (
@@ -124,6 +136,9 @@ class AdminPanel extends Component {
                     <h4>Yüklenmiş imagelar {images.filter((e) => e.active).length} Adet</h4>
                 </header>
                 <div class='row'>
+                    <button class="button-7" onClick={this.downloadAll} disabled={selectedimages.length === 0}>
+                        Hepsini İndir
+                    </button>
                     <button class="button-7" onClick={this.showSelectedimage} disabled={selectedimages.length === 0}>
                         Sabit Ekranda Sadece Seçileni Göster
                     </button>
@@ -145,7 +160,7 @@ class AdminPanel extends Component {
                                         onClick={() => this.handleimageSelect(image.skip)}
                                         title={image.skip}
                                     />
-                                    <img style={{ margin: '10px' }} width={108} height={192} src={`${image?.data}`}/>                                   
+                                    <img style={{ margin: '10px' }} width={108} height={192} src={`${image?.data}`} />
                                     <span className='radioText'></span>
                                 </div>
                             )

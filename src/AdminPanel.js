@@ -25,6 +25,7 @@ class AdminPanel extends Component {
             let list = true;
             axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip: skip, list })
                 .then(response => {
+                    console.log(response);
                     if (response.data.status) {
                         if (response?.data?.image?.data) {
                             let imageData = [{
@@ -144,7 +145,7 @@ class AdminPanel extends Component {
                                         onClick={() => this.handleimageSelect(image.skip)}
                                         title={image.skip}
                                     />
-                                    <img controls style={{ margin: '10px' }} width={108} height={192} src={`${image.data}`}>                                       
+                                    <img style={{ margin: '10px' }} width={108} height={192} src={`${image?.data}`}>
                                         Your browser does not support the image tag.
                                     </img>
                                     <span className='radioText'></span>

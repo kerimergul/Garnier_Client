@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './listVideos.css';
-import saveAs from 'save-as';
+import { saveAs } from 'file-saver';
 
 
 class AdminPanel extends Component {

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './listVideos.css';
+import './listimages.css';
 
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            videos: [],
-            selectedVideos: [],
+            images: [],
+            selectedimages: [],
             skip: 0,
             stop: false,
             deleteLoading: false,
@@ -15,32 +15,32 @@ class AdminPanel extends Component {
     }
 
     componentDidMount() {
-        this.fetchVideos();
+        this.fetchimages();
     }
 
 
-    fetchVideos = () => {
+    fetchimages = () => {
         if (!this.state.stop) {
             const { skip } = this.state;
             let list = true;
-            axios.post("https://www.tesvik-sgk.com/signal/api/video/getVideo", { skip: skip, list })
+            axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip: skip, list })
                 .then(response => {
                     if (response.data.status) {
-                        if (response?.data?.video?.data) {
-                            let videoData = [{
-                                data: response?.data?.video?.data,
-                                skip: response?.data?.video?.no,
-                                id: response?.data?.video?._id,
-                                active: response?.data?.video?.active
+                        if (response?.data?.image?.data) {
+                            let imageData = [{
+                                data: response?.data?.image?.data,
+                                skip: response?.data?.image?.no,
+                                id: response?.data?.image?._id,
+                                active: response?.data?.image?.active
                             }]
                             this.setState(prevState => ({
                                 skip: prevState.skip + 1,
-                                videos: [...prevState.videos, ...videoData],
-                            }), this.fetchVideos);
+                                images: [...prevState.images, ...imageData],
+                            }), this.fetchimages);
                         } else {
                             this.setState(prevState => ({
                                 skip: prevState.skip + 1,
-                            }), this.fetchVideos);
+                            }), this.fetchimages);
                         }
                     } else {
                         this.setState(prevState => ({
@@ -49,105 +49,105 @@ class AdminPanel extends Component {
                     }
                 })
                 .catch(error => {
-                    console.error("Error fetching videos:", error);
+                    console.error("Error fetching images:", error);
                 });
         }
     }
 
-    handleVideoSelect = (videoSkip) => {
-        // Seçili videoya eriş
-        const selectedIndex = this.state.selectedVideos.indexOf(videoSkip);
+    handleimageSelect = (imageSkip) => {
+        // Seçili imageya eriş
+        const selectedIndex = this.state.selectedimages.indexOf(imageSkip);
         // Eğer seçili ise, listeden çıkar, değilse ekler
         if (selectedIndex === -1) {
             // Seçilmemiş, listeye ekle
             this.setState(prevState => ({
-                selectedVideos: [...prevState.selectedVideos, videoSkip],
+                selectedimages: [...prevState.selectedimages, imageSkip],
             }));
         } else {
             // Seçilmiş, listeden çıkar
             this.setState(prevState => ({
-                selectedVideos: prevState.selectedVideos.filter(skip => skip !== videoSkip),
+                selectedimages: prevState.selectedimages.filter(skip => skip !== imageSkip),
             }));
 
         }
     }
 
     handleDeleteSelected = () => {
-        const { selectedVideos, videos } = this.state;
-        console.log(selectedVideos);
+        const { selectedimages, images } = this.state;
+        console.log(selectedimages);
         let idList = [];
-        let newVideosList = [];
-        selectedVideos.forEach((s) => {
-            videos.forEach((e) => {
+        let newimagesList = [];
+        selectedimages.forEach((s) => {
+            images.forEach((e) => {
                 if (e.skip === s) {
                     idList.push(e.id);
                 } else {
                     console.log()
-                    newVideosList.push(e);
+                    newimagesList.push(e);
                 }
             });
         });
         this.setState({ deleteLoading: true });
-        let skipList = selectedVideos;
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/setPassive", { idList, skipList })
+        let skipList = selectedimages;
+        axios.post("https://www.tesvik-sgk.com/signal/api/image/setPassive", { idList, skipList })
             .then(response => {
                 this.setState(prevState => ({
                     deleteLoading: false,
-                    videos: newVideosList
+                    images: newimagesList
                 }));
             })
             .catch(error => {
-                alert("Error deleting selected videos:", error);
+                alert("Error deleting selected images:", error);
                 this.setState({ deleteLoading: false });
             });
     }
 
-    showSelectedVideo = () => {
-        const { selectedVideos } = this.state;
-        let skipNoList = selectedVideos;
-        axios.post("https://www.tesvik-sgk.com/signal/api/video/setShowOnlyInStageScreen", { skipNoList })
+    showSelectedimage = () => {
+        const { selectedimages } = this.state;
+        let skipNoList = selectedimages;
+        axios.post("https://www.tesvik-sgk.com/signal/api/image/setShowOnlyInStageScreen", { skipNoList })
             .then(response => {
-                alert("Sabit Ekranda Gösterilecek Video No'ları :", JSON.stringify(selectedVideos));
-                this.setState({ selectedVideos: [] });
+                alert("Sabit Ekranda Gösterilecek image No'ları :", JSON.stringify(selectedimages));
+                this.setState({ selectedimages: [] });
             })
             .catch(error => {
-                console.error("Error show selected videos:", error);
+                console.error("Error show selected images:", error);
             });
     }
 
     render() {
-        const { videos, selectedVideos } = this.state;
+        const { images, selectedimages } = this.state;
         return (
             <div class='screen'>
                 <header>
-                    <h4>Yüklenmiş Videolar {videos.filter((e) => e.active).length} Adet</h4>
+                    <h4>Yüklenmiş imagelar {images.filter((e) => e.active).length} Adet</h4>
                 </header>
                 <div class='row'>
-                    <button class="button-7" onClick={this.showSelectedVideo} disabled={selectedVideos.length === 0}>
+                    <button class="button-7" onClick={this.showSelectedimage} disabled={selectedimages.length === 0}>
                         Sabit Ekranda Sadece Seçileni Göster
                     </button>
-                    <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedVideos.length === 0}>
+                    <button class="button-7" onClick={this.handleDeleteSelected} disabled={selectedimages.length === 0}>
                         Seçilenleri Sil
                     </button>
                 </div>
                 <div class='row'>
                     <div>
-                        {videos.map((video, index) => (
-                            video.active && (
+                        {images.map((image, index) => (
+                            image.active && (
                                 <div key={index}>
-                                    <span className='radioText'>Video No: {video.skip}</span>
+                                    <span className='radioText'>image No: {image.skip}</span>
                                     <input
                                         style={{ margin: '10px', width: '10px', height: 'auto' }}
                                         type="radio"
-                                        value={video.skip}
-                                        checked={selectedVideos.includes(video.skip)}
-                                        onClick={() => this.handleVideoSelect(video.skip)}
-                                        title={video.skip}
+                                        value={image.skip}
+                                        checked={selectedimages.includes(image.skip)}
+                                        onClick={() => this.handleimageSelect(image.skip)}
+                                        title={image.skip}
                                     />
-                                    <video controls style={{ margin: '10px' }} width={108} height={192}>
-                                        <source src={`${video.data}`} type="video/mp4" width={108} height={192} />
-                                        Your browser does not support the video tag.
-                                    </video>
+                                    <img controls style={{ margin: '10px' }} width={108} height={192}>
+                                        <source src={`${image.data}`} type="image/png" width={108} height={192} />
+                                        Your browser does not support the image tag.
+                                    </img>
                                     <span className='radioText'></span>
                                 </div>
                             )

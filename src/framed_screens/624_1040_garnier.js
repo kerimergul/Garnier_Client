@@ -23,7 +23,7 @@ class _624_1040_Garnier extends Component {
     componentDidMount() {
         console.log('componentDidMount')
         this.firstLoadimage();
-        this.interval = setInterval(this.loadimage, 20000);
+        this.interval = setInterval(this.loadimage, 15000);
     }
 
     componentWillUnmount() {

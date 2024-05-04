@@ -125,11 +125,11 @@ class _1680_1008_Garnier extends Component {
 
     render() {
         return (
-            <div id="bg" className="bg" style={style}>
+            <div id="bg" className="bg_1680_1008" style={style}>
                 <img id="image" className="image_1680_1008" height="1" width="1008"></img>
                 <img id="image2" className="image_1680_1008" height="1" width="1008"></img>
                 <div className="hole"></div>
-                <div id="top" className="top" style={styleTop} />
+                <div id="top_1680_1008" className="top" style={styleTop} />
                 {/* <div id="serial" class="serial">MAT-TR-2400608</div> */}
             </div>
         );

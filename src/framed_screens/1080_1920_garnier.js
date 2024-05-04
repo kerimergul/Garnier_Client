@@ -129,7 +129,7 @@ class _1080_1920_Garnier extends Component {
                 <img id="image" className="image_1080_1920" height="1" width="1080"></img>
                 <img id="image2" className="image_1080_1920" height="1" width="1080"></img>
                 <div className="hole"></div>
-                <div id="top" className="top" style={styleTop} />
+                <div id="top_1080_1920" className="top" style={styleTop} />
                 {/* <div id="serial" class="serial">MAT-TR-2400608</div> */}
             </div>
         );

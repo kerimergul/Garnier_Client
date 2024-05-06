@@ -22,6 +22,7 @@ class AdminPanel extends Component {
 
 
     downloadAll = () => {
+        console.log(['downloadAll'])
         const { images } = this.state;
         images.forEach((img) => {
             try {

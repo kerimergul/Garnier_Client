@@ -13,6 +13,8 @@ import _768_1344_Garnier from "./framed_screens/768_1344_garnier";
 import _864_1440_Garnier from "./framed_screens/864_1440_garnier";
 import _1680_1008_Garnier from "./framed_screens/1680_1008_garnier";
 
+import _1080_1920_Download from "./framed_screens/download_garnier";
+
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +36,9 @@ class App extends Component {
 
     else if (window.location.href.includes("/adminpanel")) {
       return <AdminPanel></AdminPanel>
+    }
+    else if (window.location.href.includes("/downloadx1080x1920")) {
+      return <_1080_1920_Download></_1080_1920_Download>
     }
 
     else if (window.location.href.includes("/_1080_1920")) {

@@ -9,6 +9,11 @@
   status = 200
 
 [[redirects]]
+  from = "/downloadx1080x1920"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/sabit"
   to = "/"
   status = 200

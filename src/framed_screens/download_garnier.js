@@ -24,7 +24,7 @@ class _1080_1920_Download extends Component {
     componentDidMount() {
         console.log('componentDidMount')
         this.firstLoadimage();
-        this.interval = setInterval(this.loadimage, 15000);
+        this.interval = setInterval(this.loadimage, 5000);
     }
 
     componentWillUnmount() {

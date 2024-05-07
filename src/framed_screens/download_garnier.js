@@ -55,7 +55,8 @@ class _1080_1920_Download extends Component {
         const { skip, first } = this.state;
         if (!this.state.loading) {
             this.setState({ loading: true, updateScreen: false });
-            axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip })
+            let list = true;
+            axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip, list })
                 .then((res) => {
                     if (res?.data?.status === true) {
                         const imageElement = this.getVisibleElement(this.state.visibleimage, this.state.first)
@@ -102,7 +103,8 @@ class _1080_1920_Download extends Component {
         let skip = 0;
         if (!this.state.loading) {
             this.setState({ loading: true, updateScreen: false });
-            axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip })
+            let list = true;
+            axios.post("https://www.tesvik-sgk.com/signal/api/image/getImage", { skip, list })
                 .then((res) => {
                     if (res?.data?.status === true) {
                         const imageElement = document.getElementById('image');
